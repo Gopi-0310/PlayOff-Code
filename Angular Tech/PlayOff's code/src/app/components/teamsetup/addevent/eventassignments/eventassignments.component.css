@@ -1,0 +1,8 @@
+.dialog-title {display: flex; justify-content: space-between; align-items: center;}
+.mat-dialog-title{margin-bottom: 0px!important;}
+.mat-icon-button .mat-icon{line-height: 15px!important;}
+.mar-l0{margin-left: 0px!important;}
+.create-team-icon .mat-dialog-container .mat-icon {  color: #fff !important;}
+.checkbox-size{width: 16px; height: 14px;}
+.popup-lbl-txt{font-size: 17px!important; font-weight: 500;}
+.mat-icon-button{padding-left: 10px!important; padding-top: 0px!important; padding-bottom: 10px!important;}

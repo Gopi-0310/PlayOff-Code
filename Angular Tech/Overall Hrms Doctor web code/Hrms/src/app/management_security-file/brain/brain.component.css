@@ -1,0 +1,29 @@
+.display_card{
+    grid-template-columns:repeat(3,auto);
+    display: grid;
+    gap: 20px;
+   
+
+}
+.display_left{
+    grid-column: span 2;
+    background-color:rgb(229,236,253);
+    margin-top: 50px;
+    height:500px ;
+    margin-left: 30px;
+}
+.display_right{
+    grid-column: span 1;
+    background-color:rgb(229,236,253);
+    margin-top: 50px;
+    height:500px ;
+    margin-right: 30px;
+}
+
+input{
+    display: block;
+    margin-left: 65px;
+    margin-top: 40px;
+    border-radius: 5px;
+    text-align: center;
+}

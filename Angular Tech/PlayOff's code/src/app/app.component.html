@@ -1,0 +1,59 @@
+<my-progress-spinner></my-progress-spinner>
+<app-splashscreen  [animationDuration]="0.5"></app-splashscreen>
+<!--<app-login></app-login>
+<app-register></app-register>
+  <app-home></app-home>-->
+<router-outlet></router-outlet>
+<ng-template #exit>            
+  <mat-dialog-content>
+    <mat-grid-list [cols]="4">
+        <div class="align-center">
+
+        <img src="../../../assets/images/exit-popPup-icon.png" alt="Team Member icons"> 
+        </div>          
+        <h3 class="align-center popup-confirm">Are you sure want to exit team creation?</h3>
+        
+    </mat-grid-list>
+    <div class="home-btn-bottom dflex" >
+        <button class="team-btn cancel-outline-btn save-cancel-btn" (click)="closeDialog()"> No </button>
+        <button class="team-btn blue-btn save-cancel-btn" (click)="exitApp()" mat-dialog-close> Yes </button>
+    </div>                         
+  </mat-dialog-content>
+  
+</ng-template>  
+
+<ng-template #quit>            
+  <mat-dialog-content>
+    <mat-grid-list [cols]="4">
+        <div class="align-center">
+
+        <img src="../../../assets/images/exit-popPup-icon.png" alt="Team Member icons"> 
+        </div>          
+        <h3 class="align-center popup-confirm">Are you sure want to exit the App?</h3>
+        
+    </mat-grid-list>
+    <div class="home-btn-bottom dflex" >
+        <button class="team-btn cancel-outline-btn save-cancel-btn" (click)="closeDialog()"> No </button>
+        <button class="team-btn blue-btn save-cancel-btn" (click)="quitApp()" mat-dialog-close> Yes </button>
+    </div>                         
+  </mat-dialog-content>
+  
+</ng-template>  
+
+<ng-template #exitToLogin>            
+  <mat-dialog-content>
+    <mat-grid-list [cols]="4">
+        <div class="align-center">
+
+        <img src="../../../assets/images/exit-popPup-icon.png" alt="Team Member icons" style="padding-top: 10px;"> 
+        </div>          
+        <h3 class="align-center popup-confirm">Are you sure want to Exit?</h3>
+        
+    </mat-grid-list>
+    <div class="home-btn-bottom dflex" >
+        <button class="team-btn cancel-outline-btn save-cancel-btn" (click)="closeDialog()"> No </button>
+        <button class="team-btn blue-btn save-cancel-btn" (click)="logout()" mat-dialog-close> Yes </button>
+    </div>                         
+  </mat-dialog-content>
+  
+</ng-template>  

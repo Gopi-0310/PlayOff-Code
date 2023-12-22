@@ -1,0 +1,8 @@
+<div class="schedule-btn-area">
+    <button class="schedule-btn dark-blue-btn  radius-btn pad-lr20 mar-5" [class]="currentTab == 'details' ? 'btn-selection' : ''" (click)="btndetailClick();"> Details </button>
+    <button class="schedule-btn dark-blue-btn radius-btn pad-lr20 mar-5" [class]="currentTab == 'availability' ? 'btn-selection' : ''" (click)="btnavailabilityClick();"> Availability
+    </button>
+    <button class="schedule-btn dark-blue-btn radius-btn pad-lr20 mar-5" [class]="currentTab == 'assignments' ? 'btn-selection' : ''" (click)="btnassingmentClick();"> Assignments
+    </button>
+</div>
+

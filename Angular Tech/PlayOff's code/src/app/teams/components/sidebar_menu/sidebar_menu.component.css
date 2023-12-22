@@ -1,0 +1,30 @@
+.mat-icon-button i, .mat-icon-button .mat-icon{line-height: 16px;}
+.mat-toolbar-row, .mat-toolbar-single-row{height: 60px!important;}
+
+.menu-spacer {
+    flex: 1 1 auto;
+  }
+  .mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button{text-align: left!important;}
+
+  .b-navbar__nav { 
+    display: none;
+  }
+  .pad-t10{
+    padding-top: 10px;
+  }
+  #hamburger{
+    padding-top: 20px!important;
+  }
+  #hamburger .material-icons{
+    padding-top: 0px!important;
+  }
+  .mat-drawer:not(.mat-drawer-side){width: 240px!important; position: fixed;}
+
+  .uppercase{
+    text-transform:capitalize;
+  }
+  @media (min-width: 600px) {  
+    .b-navbar__nav {
+      display: block;
+    }
+  }

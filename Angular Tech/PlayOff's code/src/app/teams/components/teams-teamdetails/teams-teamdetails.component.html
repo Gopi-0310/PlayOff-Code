@@ -1,0 +1,33 @@
+<section class="schedule-details teams-memberdetails">
+    <app-teams-detailtop></app-teams-detailtop>     
+     <app-teams-teambanner></app-teams-teambanner>
+ 
+     <div class="out-container container-bg">        
+         <div>
+                 <mat-card-content>
+                  
+                    <mat-form-field class="full-width pad-b10">
+                        <!-- <mat-label>Time Zone</mat-label> -->
+                        <mat-icon matPrefix>language</mat-icon>
+                        <input matInput class="pad-l5" [value]="data.timeZone"  readonly />
+                       
+                    </mat-form-field>
+        
+                    <mat-form-field class="full-width pad-b10">
+                        <!-- <mat-label>Country</mat-label> -->
+                        <mat-icon matPrefix>flag</mat-icon>
+                        <input matInput class="pad-l5" [value]="data.country"  readonly />
+                      
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width pad-b10">
+                        <!-- <mat-label> zipCode</mat-label> -->
+                        <mat-icon matPrefix> place</mat-icon>
+                        <input matInput   class="pad-l5" [value]="data.zipCode"  readonly />
+                       
+                    </mat-form-field>
+ 
+                 </mat-card-content>
+         </div>        
+     </div>
+ </section>

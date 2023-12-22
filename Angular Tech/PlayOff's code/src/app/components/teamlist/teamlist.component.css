@@ -1,0 +1,8 @@
+.mat-card{padding: 0px!important; margin: 15px!important;}
+.mat-card-sm-image {width: 100px!important; height: 100px;}
+/* .mat-card-sm-image {width: auto!important;} */
+.mat-card-title {font-size: 16px!important;  font-weight: 500;padding: 10px; margin-bottom: 0px!important;}
+.mat-card-subtitle{padding-left: 10px!important;}
+.mat-card-title-group{justify-content: flex-start!important;}
+.line-height0{line-height: 0em!important;}
+.member-title{width: 55%!important;}

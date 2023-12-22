@@ -1,0 +1,57 @@
+<div class="create-team-page">
+  <div class="create-team-icon add-gamespage">
+    <div mat-dialog-title class="dialog-title">
+      <h2>Game Assignment</h2>
+      <button mat-icon-button aria-label="close dialog" (click)="dialogRef.close()" tabindex="-1">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <form [formGroup]="gameAssignmentsForm">
+      <div class="form-group popup-scrollbar">
+        <div *ngFor="let web of assignments">
+          <label class="popup-lbl-txt">
+            <p> 
+              <input type="checkbox" [value]="web.gameAssignmentId" class="checkbox-size" (change)="onCheckboxChange($event)" [checked]="web.checked" />              
+              <span style="margin-top: -10px!important;"> {{web.gameAssignmentName}}</span>
+            </p>
+            
+          </label>
+        </div>
+
+        <div formArrayName="checkbox">
+          <div *ngFor="let web of customAssignemnts">
+            <label class="popup-lbl-txt">
+              <p> 
+                <input type="checkbox" [value]="web.check" class="checkbox-size" (change)="onCustomCheckboxChange($event)" checked />
+                <span style="margin-top: -10px!important;"> {{web.check}}</span>
+              </p>
+            </label>
+          </div>
+
+          <div *ngFor="let data of customCheckbox().controls; let i = index" [formGroupName]="i">
+            <label class="popup-lbl-txt">
+            <input type="checkbox" formControlName="selected" class="checkbox-size" checked>
+            <mat-form-field matInput class="pad-t0" style="width: 80%; padding-top: 0px!important;">
+              <input class='customAssignments-inputField' formControlName="check"  autocomplete="off" matInput style="font-weight: 500;">
+            </mat-form-field>
+          </label>
+          </div>
+        </div>
+
+        <!-- <button type="button" class="rounded-icon mar-l0" (click)="addField()">
+          <mat-icon matPrefix style="color: #fff!important;">add</mat-icon>
+        </button> -->
+        
+      </div>
+      <div class="home-btn-bottom team-schedule align-right pad-15 pad-b0">
+        <!-- <button class="rounded-btn" tabindex="0" (click)="addField()">
+            <mat-icon matPrefix style="color: #fff!important; line-height: 0.92em;" >add</mat-icon>
+        </button> -->
+        <a tabindex="0" (click)="addField()"><img src="../../assets/images/add-icon.png" alt="Add icons"></a>
+      </div>
+      <div class="btn-full-width home-btn-bottom align-center">
+        <button class="team-btn blue-btn save-cancel-btn "(click)="onSubmit()"> Save </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    padding-top: 0%;
+    margin-top: 0%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+
+}
+ @import '~ngx-toastr/toastr';
+@import '~ngx-toastr/toastr-bs4-alert';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~ngx-toastr/toastr-bs4-alert'; 
+
+ @import '~ngx-toastr/toastr'; 
+
+
+
+.toast-success  { color:black !important; border-radius: 20px !important; border: 3px solid rgb(6, 122, 218) !important; background-color: rgb(22, 116, 145) !important;z-index: 1 !important; position: absolute !important; margin-top: 2px !important; }
+.toast-info     {  color:black !important; border-radius: 20px !important; border: 3px solid rgb(6, 122, 218) !important; background-color: rgb(27, 135, 185) !important;z-index: 1 !important; position: absolute !important; margin-top: 2px !important; }
+.toast-warning  { background-color: #f99406 !important; }
+.toast-error    { background-color: #bc382e !important; }

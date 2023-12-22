@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "/kUXl6ffvw+h3iobuyTRTyUOZgG253+0vUvGlswVJXyK/z/xXK5eHNTRyIHNCtSVDfRdsG8YqKHz9jdG7qP0IQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\GobiSaravananmuthu\\Desktop\\.net programming\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\GobiSaravananmuthu\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

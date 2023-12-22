@@ -1,0 +1,43 @@
+<div style="height: 100vh;"> 
+  <mat-toolbar color="primary">
+    <div fxShow="true" fxHide.gt-sm="true" style="width: 10%;">
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div  style="width: 70%;  text-align: center!important;">
+    <span> Team Manager</span>
+  </div>
+    <div style="width: 20%; text-align: right!important;">
+      <span class="example-spacer"></span>
+      <span class="align-right" > <mat-icon>notifications</mat-icon> </span>&nbsp;&nbsp;
+      <span> <mat-icon>add_circle_outline</mat-icon></span>
+    </div>
+    <div fxShow="true" fxHide.lt-md="true">
+      <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+        <a href="#" mat-button><mat-icon>person</mat-icon> About Us</a>
+        <a href="#" mat-button><mat-icon>help</mat-icon> Help and Support</a>
+        <a (click)="logout()" mat-button><mat-icon>input</mat-icon> Logout 1</a>
+    </div>
+  </mat-toolbar>
+  <mat-sidenav-container fxFlexFill class="example-container"> 
+    <mat-sidenav #sidenav fxLayout="column">
+      <div class="hamburger-bg">
+        <div style="text-align: center;">
+          <div class="pad-t10">
+            <img mat-card-sm-image src="../../assets/images/profile-photo.png" >
+          </div>
+          <h4 class="white-txt mar-b5">British Sports Club</h4>
+          <h5 class="white-txt">+91 9094545305</h5>
+        </div>
+      </div>
+      <div fxLayout="column" id="hamburger">
+        <a href="#" mat-button><mat-icon class="pad-t0">person</mat-icon> About Us</a>
+        <a href="#" mat-button><mat-icon class="pad-t0">help</mat-icon> Help and Support</a>
+        <a href="#" mat-button><mat-icon class="pad-t0">input</mat-icon> Logout 2</a>
+      </div>
+    </mat-sidenav>
+  </mat-sidenav-container>
+</div>  
+
+

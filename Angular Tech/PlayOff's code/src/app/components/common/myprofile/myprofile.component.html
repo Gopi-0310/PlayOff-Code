@@ -1,0 +1,138 @@
+<section class="schedule-details teams-memberdetails">
+    <app-top-bar [navigationModel]="navigationModel"></app-top-bar>
+
+    <div>
+        <div class="team-memberdetails-bg"  style="height: 140px!important;">
+            <div class="align-center pad-t5p">
+                <div>
+                    <img src="../assets/images/member-photo.png" alt="Team Member icons">
+                </div>                
+            </div>
+        </div>
+        
+    </div>
+    
+     <div class="out-container container-bg">        
+         <div>
+           <form > 
+                 <mat-card-content>  
+                    <mat-form-field class="full-width pad-b10" >
+                        <mat-label>Name</mat-label>
+                        <mat-icon matPrefix>person</mat-icon>
+                        <input matInput [value]="this.localStorageService.getUserFirstName() + ' ' + this.localStorageService.getUserLastName()"  readonly>
+                        
+
+                    </mat-form-field>
+
+                     <mat-form-field class="full-width pad-b10" style="position: relative!important;">
+                         <mat-label >Mobile</mat-label>
+                         <mat-icon matPrefix>phone</mat-icon>
+                         <input matInput [value]="this.localStorageService.getUserName()" readonly> 
+                         <!-- <button class="profile-edit-rounded-btn" tabindex="0" (click)="openDialogWithTemplateRef(myDialog)" style="position: absolute!important; right: 0px;  bottom: 5px;">
+                            <mat-icon matPrefix>edit</mat-icon>
+                        </button> -->
+                        <div>
+                            <img src="../assets/images/edit-icon.png" alt="Edit icons" (click)="openDialogWithTemplateRef(myDialog)" style="position: absolute!important; right: 0px;  bottom: 5px;">
+                        </div>
+                     </mat-form-field>
+
+                     <ng-template #myDialog>
+                        <mat-dialog-content>
+                            <div class="myprofile">
+                                <div class="pad-0">
+                                    <div mat-dialog-title class="dialog-title">
+                                        <h1 mat-dialog-title>Edit Mobile </h1> 
+                                        <button mat-icon-button aria-label="close dialog" mat-dialog-close tabindex="-1">
+                                            <mat-icon>close</mat-icon>
+                                            </button>
+                                        </div> 
+                                  <form [formGroup]="profileForm" > 
+                                        <h4 class="align-center pad-t20">Enter your new mobile number we will send you OTP to verify</h4>   
+                                            <div class="pad-b20 edit-phonepopup">
+                                                <mat-form-field class="country-field">
+                                                    <mat-label> Code</mat-label>                                                    
+                                                    <mat-select formControlName="countryCode"  [(ngModel)]="countryCode"   style="padding-left: 0px!important;">
+                                                        <mat-option value="91-">IND +91</mat-option>
+                                                        <mat-option value="1-">US +1</mat-option>
+                                                    </mat-select> 
+                                                </mat-form-field>
+
+                                                <mat-form-field class="mbl-field">
+                                                    <mat-label> Mobile Number</mat-label>
+                                                    <input matInput type="tel" (keypress)="key($event)" (keydown.space)="$event.preventDefault()" formControlName="mobileNo" maxlength="10"  autocomplete="off" [(ngModel)]="mobileNumber">
+                                                </mat-form-field>
+                                            </div> 
+                                        <div class="btn-full-width home-btn-bottom">
+                                            <button class="team-btn blue-btn save-cancel-btn" (click)="editProfile()">Send OTP</button>  
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>                                               
+                        </mat-dialog-content>                                               
+                    </ng-template>
+
+                    <ng-template #myDialogs>
+                        <mat-dialog-content>
+                            <div class="myprofile">
+                                <div class="pad-0">
+                                    <div mat-dialog-title class="dialog-title">
+                                        <h1 mat-dialog-title>OTP Verification</h1> 
+                                        <button mat-icon-button aria-label="close dialog" mat-dialog-close tabindex="-1">
+                                            <mat-icon>close</mat-icon>
+                                        </button>
+                                        </div> 
+                                    <form #form> 
+                                        <!-- <h4 class="align-center pad-t20">Enter OTP from TeamDash app for mobile number change</h4>    -->
+                                        <div class="pad-b20 pad-t10"> 
+                                            <mat-form-field class="full-width">
+                                                <mat-label> Enter OTP</mat-label>
+                                                <input matInput  #temp  type="text" maxlength="4" autocomplete="off" type="tel" (keypress)="key($event)" (keydown.space)="$event.preventDefault()">
+
+                                            </mat-form-field>
+                                            <div class="error">{{this.response}}</div>
+                                        </div>  
+                                                    
+                                        <div class="btn-full-width home-btn-bottom">
+                                            <p class="sub-heading">Didn't get the OTP. <span class="green-text">
+                                                <a (click)="resendOtp(form)">Resend OTP</a></span>
+                                            </p>
+                                           
+                                            <button class="team-btn blue-btn save-cancel-btn"    (click)="otpVerify(temp.value)">Verify OTP</button>  
+                                        </div>
+                                    </form> 
+                                </div>
+                            </div>                                               
+                        </mat-dialog-content>                                               
+                    </ng-template>
+                 </mat-card-content>
+             </form> 
+         </div> 
+         
+         <div class="home-btn-bottom align-center">                
+            <a (click)="openDialogWithTemplateRef(Dialog)"  routerLinkActive="active" class="big-btn red-btn" role="button">
+               <span> Sign out </span>
+            </a>
+        </div> 
+
+        <ng-template #Dialog>            
+            <mat-dialog-content>
+              <mat-grid-list [cols]="4">
+                  <div class="align-center">
+      
+                  <img src="../../../assets/images/exit-popPup-icon.png" alt="Team Member icons" style="padding-top: 10px;"> 
+                  </div>          
+                  <h3 class="align-center popup-confirm">Are you sure want to Sign out?</h3>
+                  
+              </mat-grid-list>
+              <div class="home-btn-bottom dflex" >
+                  <button class="team-btn cancel-outline-btn save-cancel-btn" mat-dialog-close> No </button>
+                  <button class="team-btn blue-btn save-cancel-btn" (click)="logout()" mat-dialog-close> Yes </button>
+              </div>                         
+            </mat-dialog-content>
+            
+          </ng-template>  
+     </div>
+
+ 
+
+</section>

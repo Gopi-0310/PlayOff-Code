@@ -1,0 +1,5 @@
+.app-splash-screen { background: rgb(252, 252, 252); background: radial-gradient(circle, rgb(252, 252, 252) 0%, rgb(228, 228, 228) 100%);  position: fixed;  top: 0;  left: 0;  right: 0;  bottom: 0;  display: flex;  flex-direction: column;  justify-content: center;  /*align-items: end;*/  width: 100%;  height: 100%;  z-index: 100;  opacity: 1;}
+.app-dropdown{ display: flex;   flex-direction: column; align-items: end; position: absolute; top: 0; right: 0; padding-right: 20px;  padding-top: 10px;} 
+.app-splash-inner {  display: flex;  flex-direction: column;  justify-content: center;  align-items: center;  width: 87%;  padding: 15px;  text-align: center;}
+
+

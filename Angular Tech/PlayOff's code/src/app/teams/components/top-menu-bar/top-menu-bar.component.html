@@ -1,0 +1,30 @@
+<section class="nav-bg"> 
+    <mat-toolbar class="nav-bg">
+		<a (click)="dashBoard()" tabindex="-1" class="navbar-txt" [class]="currentTab == 'home' ? 'selected' : ''">
+            <mat-icon>home</mat-icon>
+            <span class="top-nav-icon">Home</span>         
+        </a>
+
+        <a (click)="schedule()" class="navbar-txt" [class]="currentTab == 'schedule' ? 'selected' : ''">
+            <mat-icon>event</mat-icon>
+            <span class="top-nav-icon">Schedule</span>          
+        </a>
+
+        <a (click)="teams()" class="navbar-txt" [class]="currentTab == 'teams' ? 'selected' : ''">
+            <mat-icon> list_alt</mat-icon>
+            <span class="top-nav-icon">Teams</span>         
+        </a>
+
+        <a (click)="teammembers()" class="navbar-txt" [class]="currentTab == 'team_members' ? 'selected' : ''">
+            <mat-icon>supervisor_account</mat-icon>
+            <span class="top-nav-icon">Members</span>           
+        </a>
+
+        <a (click)="setting()" class="navbar-txt" [class]="currentTab == 'settings' ? 'selected' : ''">
+            <mat-icon>settings</mat-icon>
+            <span class="top-nav-icon">Settings</span>
+        </a>
+  </mat-toolbar>
+</section>
+
+

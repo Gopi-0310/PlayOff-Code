@@ -1,0 +1,39 @@
+Angular create CMD
+*******************
+1-We want to install latest version of angular.
+2- angular cli- cmd(npm install@angular/cli@latest) Enter
+
+
+Create Angular Project
+**********************
+1-first we will create project folder like cmd-(mkdir"HTS")Enter---HTS foldername
+1.1 ng new project name .
+2-it s requires angular routing y/n we select y----enter
+3-again requires sheet like css click on CSS option then press enter
+4-then file packages download .............wait......
+5-cd your file name like)(cd myproject)--enter
+6code .(this is cmg action of nxt page like vs application)
+
+VS EDITOR
+*********
+1-terminaL click
+2-ng serve --o
+//then this cmd move to browser like you'r anguilar project
+
+
+Angular MVC
+************
+1- create component (terminal write the cmd)--ng g c folder name.. like(ng g c Sate)
+1.1-g-generate.
+1.2-c-component.
+2 then your folder create your project below app folder.
+3- sub folder creater(ng g c State/forms).
+4- then we will create service folder like...(ng g s Shared/api)
+4.1- s-- service.
+4.2- shared--folder.
+4.3- api -- filename.
+5-then we will create the type script page going to tyst-- import the servece like..(import{ApiService} from '../api/Shared/api.service';)
+5.1-then add the provider section class name like..)provider;[ApiService] .
+5.2 ApiService - class name.
+6-then we want to add the forms and http request so iam using imports on the typs like....(import {FormsModule} from '@angular/forms';)(import {HttpClientModule} from '@angular/common/http';)
+6.1 - at the same time add the import section like....(import:[FormsModule, HttpClientMoule];

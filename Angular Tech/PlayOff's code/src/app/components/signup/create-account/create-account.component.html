@@ -1,0 +1,57 @@
+<div class="signup-page create-accounts">
+  <app-top-bar [navigationModel]="navigationModel"></app-top-bar>
+
+  <div class="out-container">
+    <app-progress-bar [step3]="step3"></app-progress-bar>
+    <form [formGroup]="regForm">
+      <div class="role-cards">
+        <div>
+            <h2>Create Account</h2>
+        </div>
+        <div class="example-container">
+          <mat-form-field>
+            <mat-label>First Name</mat-label>
+            <mat-icon matPrefix>person</mat-icon>
+            <input matInput formControlName="firstName" (keypress)="omit_special_char($event)" autocomplete="off"
+              maxlength="50">
+          </mat-form-field>
+        </div>
+        <div class="example-container pad-b20">
+          <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <mat-icon matPrefix>person</mat-icon>
+            <input matInput formControlName="lastName" (keypress)="omit_special_char($event)" autocomplete="off"
+              maxlength="50">
+          </mat-form-field>
+        </div>
+
+        <div class="example-container mar-t10">
+          <section class="example-section">
+            <mat-slide-toggle class="example-margin" formControlName="terms" [color]="color" [checked]="checked"
+              [disabled]="disabled">
+              I agree to Playoffs 
+              <span class="select-font"><a  routerLink="/termsandconditions" routerLinkActive="active" class="green-txt">Terms of Service</a></span> <br /> and 
+              <span class="select-font"><a routerLink="/privacypolicy" routerLinkActive="active" class="green-txt"> Privacy Policy</a></span>
+            </mat-slide-toggle>
+          </section>
+        </div>
+
+        <div class="example-container">
+          <section class="example-section">
+            <mat-slide-toggle class="example-margin" [color]="color" [checked]="checked" [disabled]="disabled">
+              Send me Playoffs News & Updates
+            </mat-slide-toggle>
+          </section>
+        </div>
+
+
+        <div class="home-btn-bottom align-center">
+          <a class="team-btn mr-tb20" [ngClass]="{'blue-btn':regForm.valid,'disabled':!regForm.valid}"
+            (click)="onSubmit()" routerLinkActive="active">
+            <span class="mat-button-wrapper "> Submit</span>
+          </a>
+        </div>
+
+      </div>
+
+

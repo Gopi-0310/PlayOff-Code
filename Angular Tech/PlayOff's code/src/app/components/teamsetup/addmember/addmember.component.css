@@ -1,0 +1,90 @@
+.mat-form-field {
+    width: 100%;
+}
+
+.mat-icon {
+    height: 24px !important;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    font-weight: 500 !important;
+}
+
+.pad-0 {
+    padding: 0px !important;
+}
+
+.date-picker-txt {
+    position: relative;
+}
+
+.date-picker-txt .mat-form-field-prefix {
+    position: initial !important;
+}
+
+.mat-datepicker-icons {
+    position: absolute !important;
+    right: 0px !important;
+    bottom: 25px !important;
+}
+
+.mat-list-base .mat-list-item,
+.mat-list-base .mat-list-option {
+    height: 34px !important;
+    margin-left: 5px;
+}
+
+.dialog-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mar-b0 {
+    margin-bottom: 0px !important;
+}
+.top-header {
+    background-color: #1565c0;
+    height: 50px;
+}
+
+.top-header h2 {
+    margin: 0px !important;
+    /*line-height: 1.2em;*/
+    line-height: 28px;
+    font-weight: 500 !important;
+}
+
+.flex-container {
+    -ms-box-orient: horizontal;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.left-icon {
+    width: 10%
+}
+
+.center-title {
+    width: 80%
+}
+
+.right-icon {
+    width: 10%
+}
+
+.left-icon,
+.center-title,
+.right-icon {
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+:host ::ng-deep .mat-form-field-invalid .mat-form-field-flex {
+    border-bottom: 2px solid red !important;
+  }

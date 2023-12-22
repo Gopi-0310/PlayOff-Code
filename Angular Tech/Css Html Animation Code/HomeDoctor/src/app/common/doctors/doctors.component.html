@@ -1,0 +1,9 @@
+<p>doctors parant!</p>
+<!-- parant to child data passing   [parantToChild]->parant variable  -->
+<app-doctor-list [parantToChild]="data"></app-doctor-list>
+
+
+<!--  child to parant data passing-->
+<app-doctor-list (chileToParant)="childToParant($event)"></app-doctor-list>
+
+<p>{{data1}}</p> 

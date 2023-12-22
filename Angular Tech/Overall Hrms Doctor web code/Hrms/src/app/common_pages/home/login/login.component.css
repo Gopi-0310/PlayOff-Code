@@ -1,0 +1,46 @@
+.login_display{
+    height: 400px;
+    width: 350px;
+    /* background-image:linear-gradient(to right,#191877,#055555); */
+    background-color:rgb(229,236,253);
+    border-radius: 33px;
+    border-width: 30px;
+    border:rgb(229,236,253) solid;
+  
+}
+.login_display:hover{
+    border:black solid;
+}
+form{
+    margin-left: 60px;
+}
+h5{
+    margin-left: 80px; 
+    margin-top: 30px;
+    font-weight: 900;
+}
+.input_display{
+margin-top: 20px;
+border:rgb(229,236,253) solid;
+border-radius: 10px;
+}
+
+.display{
+    margin-top: 40px;
+}
+button{
+    margin-top: 40px;
+    padding: 4px;
+    margin-left: 67px;
+    border-radius: 8px;
+    width:80px ;
+    height: 40px;
+    border: rgb(0, 0, 0) solid;
+
+}
+button:hover{
+    background-color: rgb(42, 165, 184);
+}
+form p a:hover{
+color: blue;
+}

@@ -1,0 +1,4 @@
+<mat-label>Location</mat-label>
+<input matInput [(ngModel)]="this.service.location" matGoogleMapsAutocomplete
+    (onAutocompleteSelected)="onAutocompleteSelected($event)" (onLocationSelected)="onLocationSelected($event)" />
+<mat-icon class="mat-icon" matSuffix>place</mat-icon>

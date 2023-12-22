@@ -1,0 +1,12 @@
+<div class="team-schedule-bg">
+    <div class="align-center pad-t15p" *ngIf="localStorageService.getUserActionData().data.type == 'game'">
+        <h2 class="white-txt mar-b0">Vs. {{gameModel?.gameOpponentData.teamName}}</h2>
+        <h3 class="white-txt mar-b0">{{gameModel.gameDate}}</h3>
+        <h4 class="yellow-txt mar-b0">{{gameModel.gameTime}}</h4>
+    </div>
+    <div class="align-center pad-t15p" *ngIf="localStorageService.getUserActionData().data.type == 'event'">
+        <h2 class="white-txt mar-b0">{{eventModel.eventName}}</h2>
+        <h3 class="white-txt mar-b0">{{eventModel.eventDate}}</h3>
+        <h4 class="yellow-txt mar-b0">{{eventModel.eventTime}}</h4>
+    </div>
+</div>

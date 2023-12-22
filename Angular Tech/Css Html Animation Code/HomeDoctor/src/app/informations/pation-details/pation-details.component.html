@@ -1,0 +1,29 @@
+<div class="card1" *ngIf="user == true">
+    <div class="card2" *ngIf="userApplication.sex == 'male'"><img src="https://img.freepik.com/premium-photo/portrait-indian-male-businessman-standing-white-background_466689-45672.jpg?size=338&ext=jpg&ga=GA1.2.987001781.1675161831&semt=sph"></div>
+    <div class="card2" *ngIf="userApplication.sex == 'female'"><img src="https://media.gettyimages.com/id/1195442620/photo/smiling-businesswoman-standing-in-front-of-a-white-wall.jpg?s=612x612&w=0&k=20&c=5tubgwpmd_TP1Hiq4fWTrY-MjNPX6-flB6PvAnBjsoo="></div>
+    <div class="card3">
+        <h1>Patient Details</h1>
+        <h6 style="padding-top: 20px;"><span style="color:white;">Patient Name:</span ><span style="color: rgb(2, 2, 2);">{{userApplication.name  | uppercase}}</span></h6><br>
+        <h6 style="padding-top: 40px;"><span style="color:white">Patient Age :</span><span style="color: black;">   {{userApplication.age}}</span></h6><br>
+        <h6 style="padding-top: 60px;"><span style="color:white">Patient Sex :</span ><span style="color: black;">{{userApplication.sex | titlecase}}</span> </h6><br>
+        <h6 style="padding-top: 80px;"><span style="color:white">Patient Disease:</span><span style="color: black;">{{userApplication.disease | titlecase}}</span>  </h6><br>
+        <h6 style="padding-top: 100px;"><span style="color:white">Patient MobileNumber:</span><span style="color: black;">{{userApplication.mobileNumber}}</span> </h6><br>
+        <h6 style="padding-top:120px;"><span style="color:white">Patient Time:</span ><span style="color: black;">{{userApplication.time }}</span> </h6><br>
+    </div>
+
+</div>
+<div class="card1" *ngIf="this.admin == true">
+    <div *ngFor=" let item of adminApplication |async">
+    <div class="card22" *ngIf="item.sex == 'male'"><img src="https://img.freepik.com/premium-photo/portrait-indian-male-businessman-standing-white-background_466689-45672.jpg?size=338&ext=jpg&ga=GA1.2.987001781.1675161831&semt=sph"></div>
+    <div class="card22" *ngIf="item.sex == 'female'"><img src="https://media.gettyimages.com/id/1195442620/photo/smiling-businesswoman-standing-in-front-of-a-white-wall.jpg?s=612x612&w=0&k=20&c=5tubgwpmd_TP1Hiq4fWTrY-MjNPX6-flB6PvAnBjsoo="></div>
+
+    <div class="card33">
+        <h6 style="padding-top: 20px;"><span style="color:white;">Patient Name:</span ><span style="color: rgb(243, 237, 237);">{{item.username}}</span></h6><br>
+        <h6 style="padding-top: 40px;"><span style="color:white">Patient Age :</span><span style="color:rgb(243, 237, 237);">   {{item.age}}</span></h6><br>
+        <h6 style="padding-top: 60px;"><span style="color:white">Patient Sex :</span ><span style="color:rgb(243, 237, 237);">{{item.sex}}</span> </h6><br>
+        <h6 style="padding-top: 80px;"><span style="color:white">Patient Disease:</span><span style="color:rgb(243, 237, 237);">{{item.disease}}</span>  </h6><br>
+        <h6 style="padding-top: 100px;"><span style="color:white">Patient MobileNumber:</span><span style="color:rgb(243, 237, 237);">{{item.mobileNumber}}</span> </h6><br>
+        <h6 style="padding-top:120px;"><span style="color:white">Patient Time:</span ><span style="color:rgb(243, 237, 237);">{{item.time}}</span> </h6><br>
+    </div>
+</div>
+</div>

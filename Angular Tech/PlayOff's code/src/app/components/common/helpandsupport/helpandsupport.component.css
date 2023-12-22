@@ -1,0 +1,7 @@
+.role-cards {padding: 10px;}
+
+.helpandsupport p, .terms-ul{font-size: 16px!important; text-align: justify; line-height: 2em!important; font-weight: 500;}
+.helpandsupport h4{font-size: 16px!important; font-weight: 600; line-height: 2em!important;}
+.helpandsupport h3{font-size: 18px!important; font-weight: 600; text-decoration: underline; line-height: 2em!important;}
+.helpandsupport .mat-accordion .mat-expansion-panel:not(.mat-expanded), .mat-accordion .mat-expansion-panel:not(.mat-expansion-panel-spacing){margin-bottom: 15px!important;}
+.helpandsupport .mat-expansion-panel-header{padding: 0px 20px 0px 10px; font-weight: 500;}

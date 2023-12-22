@@ -1,0 +1,41 @@
+<div class="signup-page select-role">
+  <app-top-bar [navigationModel]="navigationModel"></app-top-bar>
+
+  <div class="out-container">
+
+    <app-progress-bar [step2]="step2"></app-progress-bar>
+
+    <div class="role-cards">
+      <mat-card>
+        <div class="align-center">
+          <img src="../../../assets/images/coachormanager.png" alt="" />
+        </div>
+        <div class="align-center">
+          <h2>Coach or Manager</h2>
+          <P class="align-center">Sign up and simplify team management</P>
+          <form [formGroup]="signUpForm">
+            <div class="home-btn-bottom align-center">
+              <input type="hidden" formControlName="role" name="role" value="Coach">
+              <a routerLinkActive="active" class="team-btn blue-btn big-btns" value="Coach" (click)="onSubmit(coach)"> Select and
+                Continue </a>
+            </div>
+          </form>
+        </div>
+      </mat-card>
+
+      <mat-card class="mrt-20" aria-disabled="true">
+        <div class="align-center">
+          <img src="../../../assets/images/teammember-disabled.png" alt="" />
+        </div>
+        <div class="align-center ">
+          <h2 style="color: rgb(180, 180, 180);">Team Member</h2>
+
+          <P class="align-center"> Sign up now, find your team and invite others</P>
+          <div class="home-btn-bottom align-center">
+            <a role="button" class="team-btn big-btns blue-btn disabled"> Select and Continue </a>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

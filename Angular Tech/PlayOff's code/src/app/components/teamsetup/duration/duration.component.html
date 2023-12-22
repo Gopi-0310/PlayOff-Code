@@ -1,0 +1,53 @@
+<form [formGroup]="durationForm">
+    <div mat-dialog-title class="dialog-title">
+        <h2 class="mar-b0 pad-b20">Duration</h2>
+        <button mat-icon-button aria-label="close dialog" mat-dialog-close (click)="onNoClick()" tabindex="-1">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <mat-dialog-content>
+        <mat-grid-list cols="2" rowHeight="2:1" [gutterSize]="'40px'">
+            <mat-grid-tile>
+                <mat-form-field class="border-bottom">
+                    <mat-label>Hours</mat-label>
+                    <mat-select *ngIf="data.action == 'game' " [(ngModel)]="data.durationHours" formControlName="hours">
+                        <mat-option *ngFor="let durationHours of data.durationHoursList"
+                            value="{{ durationHours.gameDurationId }}">
+                            {{ durationHours.gameDurationHours }}</mat-option>
+                    </mat-select>
+                    <mat-select *ngIf="data.action == 'event' " [(ngModel)]="data.durationHours"
+                        formControlName="hours">
+                        <mat-option *ngFor="let durationHours of data.durationHoursList"
+                            value="{{ durationHours.eventDurationId }}">
+                            {{ durationHours.eventDurationHours }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field class="border-bottom">
+                    <mat-label>Minutes</mat-label>
+                    <mat-select class="min-option" *ngIf="data.action == 'game' " [(ngModel)]="data.durationMinutes"
+                        formControlName="minutes">
+                        <mat-option *ngFor="let durationMin of data.durationMinutesList"
+                            value="{{ durationMin.gameDurationId }}">{{ durationMin.gameDurationMinutes }}
+                        </mat-option>
+                    </mat-select>
+                    <mat-select class="min-option" *ngIf="data.action == 'event' " [(ngModel)]="data.durationMinutes"
+                        formControlName="minutes">
+                        <mat-option *ngFor="let durationMin of data.durationMinutesList"
+                            value="{{ durationMin.eventDurationId }}">{{ durationMin.eventDurationMinutes }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
+        <div class="btn-full-width home-btn-bottom">
+            <button class="team-btn save-cancel-btn" (click)="durationSubmit()" [mat-dialog-close]="data"
+                [ngClass]="{'blue-btn':durationForm.valid,'disabled':durationForm.invalid}"
+                [disabled]="durationForm.invalid">
+                Ok
+            </button>
+        </div>
+    </mat-dialog-content>
+</form>

@@ -1,0 +1,33 @@
+.nav-bg {
+    /* background-color: #1565c0;  */
+    background-color: #102e8b;
+    color: #fff;
+    height: 80px !important
+}
+
+.mat-button,
+.mat-icon-button,
+.mat-stroked-button,
+.mat-flat-button {
+    padding: 0 5px !important;
+    font-weight: 500; 
+}
+
+.secondary-toolbar {
+    height: 80px;
+}
+
+.secondary-toolbar button {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-nav-icon {
+    display: flex;
+}
+
+.mat-icon-button {
+    width: auto !important;
+    height: auto !important;
+    /* padding-top: 10px !important; */
+}

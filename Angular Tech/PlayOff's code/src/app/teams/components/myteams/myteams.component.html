@@ -1,0 +1,95 @@
+<section class="pad-b5">
+  <sidebar_menu></sidebar_menu>
+  <top-menu-bar [currentTab]="tabName"></top-menu-bar>
+
+  <div>
+  <div class="home-btn-bottom team-schedule myteams-page align-right pad-15 pad-b0">
+    <!-- <button class="rounded-btn" tabindex="0">
+        <mat-icon matPrefix>add</mat-icon>
+    </button> -->
+    <!-- <p class="success-message">{{message}}</p> -->   
+
+    <a tabindex="0" routerLinkActive="active" routerLink="#" (click)="createTeam()"><img src="../../assets/images/add-btn.png" alt="Add icons"></a>
+  </div>
+
+ <div *ngFor="let item of dashboardData">
+  <mat-card class="example-card" *ngIf="item.teamId != this.localStorageService.getUserTeamID()">
+      <mat-card-title-group>
+          <div  class="line-height0">
+              <img mat-card-sm-image  src="../../assets/images/{{item.sportsTypeData.sportName}}-team-icon.png" >
+          </div>
+
+        <div style="width: 100%!important; margin-right: 5px;">          
+          <div class="accept-icons pad-5 pad-t10 align-right" style="width: 100%!important;"> 
+            <img src="../../assets/images/view-icon.png" (click)="openDialogTemplateRef(Dialog)"alt="Change Team" class="pad-r10">
+            <img *ngIf="item.teamMemberData&&item.teamMemberData.isManager==true" src="../../assets/images/edit-icon.png" (click)="editTeamById(item.teamId)" alt="Edit icons" class="pad-r10"> 
+            <img *ngIf="item.teamMemberData&&item.teamMemberData.isManager==true" src="../../assets/images/delete-icon.png" (click)="openDialogWithTemplateRef(myDialog)" alt="Delete icons" class="pad-r5">               
+          </div> 
+          <div (click)="getTeamById(id.innerHTML)"  class="myteams-page-card">               
+            <mat-card-title #data>{{item.teamName}}</mat-card-title>
+            <mat-card-subtitle>{{item.sportsTypeData.sportName}}</mat-card-subtitle>
+            <mat-card-subtitle #id class="cdk-visually-hidden">{{item.teamId}}</mat-card-subtitle>  
+        </div> 
+        </div>
+      </mat-card-title-group> 
+  </mat-card>
+
+    <div>                                          
+      <!-- Dialog template -->
+      <ng-template #myDialog>            
+        <mat-dialog-content>
+          <mat-grid-list [cols]="4">
+              <div class="align-center">
+                  <img src="../../assets/images/delete-popup-icon.png" alt="Team Member icons">
+              </div>          
+              <h3 class="align-center popup-confirm">Are you sure want to delete this team?</h3>
+              
+          </mat-grid-list>
+          <div class="home-btn-bottom dflex" >
+              <button class="team-btn cancel-outline-btn save-cancel-btn" mat-dialog-close> No </button>
+              <button class="team-btn red-btn save-cancel-btn" mat-dialog-close (click)="deleteTeamById(item.teamId,item.teamName)"> Yes </button>
+          </div>                         
+        </mat-dialog-content>
+        
+      </ng-template>  
+    </div>
+
+    <div>                                          
+      <!-- Dialog template -->
+      <ng-template #Dialog>            
+        <mat-dialog-content>
+          <mat-grid-list [cols]="4">
+              <div class="align-center">
+  
+              <img src="../../../assets/images/changeTeam-Popup-icon.png" alt="Team Member icons"> 
+              </div>          
+              <h3 class="align-center popup-confirm">Do you want to switch team?</h3>
+              
+          </mat-grid-list>
+          <div class="home-btn-bottom dflex" >
+              <button class="team-btn cancel-outline-btn save-cancel-btn" mat-dialog-close> No </button>
+              <button class="team-btn blue-btn save-cancel-btn" (click)="changeTeamById(item.teamId, item.teamName, item.teamMemberData?item.teamMemberData.isManager:false)" mat-dialog-close> Yes </button>
+          </div>                         
+        </mat-dialog-content>
+        
+      </ng-template>  
+    </div>
+  </div>
+</div>
+
+  <div *ngIf="dashboardData.length <= 1" class="pad-t80">
+    <div class="align-center">
+        <img src="../../../assets/images/noteam-icon.png" alt="" />
+    </div>
+    <div class="align-center">
+      <h2>No teams are available.</h2>
+      <p>Please click the add icon to create team</p> 
+  </div>
+</div>
+</section>
+
+
+
+
+
+

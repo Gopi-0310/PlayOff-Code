@@ -1,0 +1,46 @@
+<section class="pad-b5" style="height: 65vh; overflow: scroll;">
+  <mat-card class="example-card" *ngFor="let item of dashboardData">
+    <!-- <div *ngIf="this.auth.teamname == item.teamId"> -->
+    <mat-card-title-group>
+      <div class="landing-leftimg line-height0 align-center">
+        <h2 class="white-txt mar-b5 pad-t40p">{{item.eventDate.substring(0,2)}}</h2>
+        <h4 class="yellow-txt font-500"> {{item.eventDate.substring(3,6)}} {{item.eventDate.substring(7)}}  </h4>
+      </div>
+      <div class="landing-centerpcontent">        
+        <mat-card-title class=" black-text">Event Name: {{ item.eventName }} </mat-card-title>
+        <mat-card-subtitle class="black-text"><b>Time:</b> {{ item.eventTime }}</mat-card-subtitle>
+        <mat-card-subtitle class="black-text add-three-dots"><b>Location:</b> {{ item.eventLocation }}</mat-card-subtitle>
+        <mat-card-subtitle class="black-text"><b>Time Zone:</b> {{ item.eventTimeZone }}</mat-card-subtitle>
+        
+        <!-- <mat-card-subtitle class="blue-text">EventDuration:{{item.eventDurationHours}}</mat-card-subtitle>   -->
+        <div class="example-button-row mb-10 pad-l10">
+          <button (click)="updateEventAcceptanceStatus(item.teamId, item.eventId, item.playerId,(item.eventUserAcceptanceData ? item.eventUserAcceptanceData.eventUserAcceptanceString : '')  , 'Accept')" mat-raised-button=""  class="green-btn sm-btn">
+            Accept 
+          </button>
+          <button (click)="updateEventAcceptanceStatus(item.teamId, item.eventId, item.playerId,(item.eventUserAcceptanceData ? item.eventUserAcceptanceData.eventUserAcceptanceString : ''), 'Reject')" mat-raised-button="" class="red-btn sm-btn">
+            Reject  
+          </button>
+          <button (click)="updateEventAcceptanceStatus(item.teamId, item.eventId, item.playerId, (item.eventUserAcceptanceData ? item.eventUserAcceptanceData.eventUserAcceptanceString : '') , 'MayBe')" mat-raised-button=""  class="orange-btns sm-btn">
+            May be                 
+          </button>
+        </div>
+      </div>
+      <div class="example-button-row mb-10 pad-r10">
+        <mat-icon *ngIf="item.eventUserAcceptanceData && item.eventUserAcceptanceData.eventUserAcceptanceString =='Accepted'" class="green-icons">thumb_up_alt </mat-icon>
+        <mat-icon *ngIf="item.eventUserAcceptanceData && item.eventUserAcceptanceData.eventUserAcceptanceString =='Rejected'" class="red-icons">thumb_down_alt</mat-icon>
+        <mat-icon *ngIf="item.eventUserAcceptanceData && item.eventUserAcceptanceData.eventUserAcceptanceString == 'Maybe'" class="orange-icons"> live_help</mat-icon>
+      </div>
+    </mat-card-title-group>
+    <!-- </div>       -->
+  </mat-card>
+    <div *ngIf="dashboardData == '' " class="pad-t100">
+      <div class="align-center">
+        <img src="../../../assets/images/noevent-icon.png" alt="" />
+      </div>
+      <div class="align-center">
+        <h2>No events are available</h2>
+      </div>      
+    </div>
+
+  <ad-component></ad-component>
+</section>

@@ -1,0 +1,3 @@
+<webcam *ngIf="this.service.paharantComponent" [height]="590" [width]="239.5"   [trigger]="triggerObservable" (imageCapture)="handleImage($event)"></webcam>
+                <button *ngIf="this.service.paharantComponent"  style="border-radius: 20px; color: white; background-color:rgb(4,40,75); margin-left: 65px;"  class="webcame"  (click)="triggerSnapshot()">Take a picture</button>
+<app-picture *ngIf="this.service.childComponent" [child_component]="this.picture"></app-picture> 

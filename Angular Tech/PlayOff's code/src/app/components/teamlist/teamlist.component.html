@@ -1,0 +1,49 @@
+<div class="signup-page">
+  <app-top-bar [navigationModel]="navigationModel"></app-top-bar>
+
+  <div class="home-btn-bottom team-schedule align-right pad-15 pad-b0">
+    <a tabindex="0" routerLinkActive="active" routerLink="/createteam"
+      ><img src="../../assets/images/add-btn.png" alt="Add icons"
+    /></a>
+  </div>
+
+  <div class="mrt-20">
+    <div *ngFor="let item of listTeam">
+      <mat-card
+        class="example-card"
+        (click)="selectTeam(item.teamMemberData.memberRole,item.teamId, item.teamName, item.teamMemberData?item.teamMemberData.isManager:false)" >
+        
+        <mat-card-title-group>
+          <div class="line-height0">
+            <img
+              mat-card-sm-image src="../../assets/images/{{item.sportsTypeData.sportName}}-team-icon.png" />
+
+          </div>
+          <div
+            class="member-title"
+            (click)="selectTeam(item.teamMemberData.memberRole,item.teamId, item.teamName, item.teamMemberData?item.teamMemberData.isManager:false)"
+          >
+            <mat-card-title #name>{{ item.teamName }}</mat-card-title>
+            <mat-card-subtitle>{{
+              item.sportsTypeData.sportName
+            }}</mat-card-subtitle>
+            <mat-card-subtitle #id class="cdk-visually-hidden">{{
+              item.teamId
+            }}</mat-card-subtitle>
+          </div>
+        </mat-card-title-group>
+      </mat-card>
+    </div>
+  </div>
+  
+  <div *ngIf="listTeam == '' ">
+    <div class="align-center">
+        <img src="../../../assets/images/noteam-icon.png" alt="" />
+    </div>
+    <div class="align-center">
+        <h2>No teams are available.</h2>
+        <p class="align-center"> Please click the add icon to create team.</p>
+    </div>
+</div>
+
+</div>

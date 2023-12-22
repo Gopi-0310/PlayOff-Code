@@ -1,0 +1,22 @@
+.f-0_8              { font-size: 0.8em; }
+::ng-deep .mat-dialog-container
+{
+    padding: 1.5vmin;
+    position: relative;
+    display: grid;
+}
+.mat-dialog-head
+{
+    position: absolute;
+    top: 2vmin;
+}
+.mat-dialog-body
+{
+    position: absolute;
+    top: 7vmin;
+}
+.mat-dialog-btn
+{
+    position: absolute; 
+    bottom: 2vmin;
+}

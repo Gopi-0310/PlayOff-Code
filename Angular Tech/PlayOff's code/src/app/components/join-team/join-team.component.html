@@ -1,0 +1,65 @@
+<div class="signup-page">
+  <app-top-bar [navigationModel]="navigationModel"></app-top-bar>
+
+  <div class="out-container">
+    <div>
+      <mat-card class="success-bg align-center">
+        <h2 class="green-txt">Welcome to Playoffs!</h2>
+        <p>Let's Join your team</p>
+      </mat-card>
+    </div>
+    <form [formGroup]="inviteForm">
+      <div class="pad-t20">
+
+        <div class="example-container">
+          <mat-form-field>
+            <mat-label>First Name</mat-label>
+            <mat-icon matPrefix>person</mat-icon>
+            <input matInput class="pad-l5" [value]="registerUserModel.firstName" readonly autocomplete="off"
+              maxlength="50">
+          </mat-form-field>
+        </div>
+        <div class="example-container">
+          <mat-form-field *ngIf="registerUserModel.lastName">
+            <mat-label>Last Name</mat-label>
+            <mat-icon matPrefix>person</mat-icon>
+            <input matInput class="pad-l5" [value]="registerUserModel.lastName" readonly autocomplete="off"
+              maxlength="50">
+          </mat-form-field>
+          <mat-form-field *ngIf="!registerUserModel.lastName" floatLabel="never">
+            <mat-icon matPrefix>person</mat-icon>
+            <input matInput placeholder="Last Name" class="pad-l5" [value]="registerUserModel.lastName" readonly
+              autocomplete="off" maxlength="50">
+          </mat-form-field>
+        </div>
+
+        <div class="example-container mar-t10">
+          <section class="example-section">
+            <mat-slide-toggle class="example-margin" formControlName="terms" [color]="color" [checked]="checked"
+              [disabled]="disabled">
+              I agree to Playoffs <span class="select-font"><a routerLinkActive="active"
+                  routerLink="/termsandconditions" class="green-txt"> Terms of Service</a></span> <br /> and <span
+                class="select-font"> <a routerLinkActive="active" routerLink="/privacypolicy" class="green-txt"> Privacy
+                  Policy </a></span>
+            </mat-slide-toggle>
+          </section>
+        </div>
+
+        <div class="example-container">
+          <section class="example-section">
+            <mat-slide-toggle class="example-margin">
+              Send me Playoffs News & Updates
+            </mat-slide-toggle>
+          </section>
+        </div>
+
+        <div class="home-btn-bottom align-center">
+          <a class="team-btn blue-btn mr-tb20" routerLinkActive="active"
+            [ngClass]="{'blue-btn':inviteForm.valid,'disabled':!inviteForm.valid}">
+            <span class="mat-button-wrapper " (click)="onSubmit()"> Submit</span>
+          </a>
+        </div>
+
+
+      </div>
+    </form>

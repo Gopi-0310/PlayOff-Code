@@ -1,0 +1,120 @@
+<section class="pad-b5">
+    <sidebar_menu></sidebar_menu>
+    <top-menu-bar [currentTab]="tabName"></top-menu-bar>
+
+    <div class="home-btn-bottom team-schedule align-right pad-15 pad-b0">
+        <!-- <button class="rounded-btn" tabindex="0">
+            <mat-icon (click)="openSchedule()" matPrefix>add</mat-icon>
+        </button> -->
+        <a tabindex="0" *ngIf="isManager==true" (click)="openSchedule()"><img src="../../assets/images/add-btn.png"
+                alt="Add icons"></a>
+    </div>
+
+    <div *ngFor="let schedule of scheduleList">
+        <mat-card class="example-card">
+            <div *ngIf="schedule.isEvent==true">
+                <mat-card-title-group>
+                    <div class="landing-leftimg line-height0 align-center schedule-left">
+                        <h2 class="white-txt mar-b5 pad-t40p">{{schedule.eventDate.substring(0,2)}}</h2>
+                        <h4 class="yellow-txt">{{schedule.eventDate.substring(3,6)}} {{schedule.eventDate.substring(7)}}
+                        </h4>
+                    </div>
+                    
+                    <div class="schedule-right">
+                        
+                        <div class="pad-10 align-right pad-b0">
+                            <!-- <img src="../../assets/images/view-icon.png" alt="View icons" class="pad-r10"
+                                (click)="scheduleDetails(schedule.eventId,'event')"> -->
+
+                            <img *ngIf="schedule.isManager==true" src="../../assets/images/edit-icon.png"
+                                alt="Edit icons" class="pad-r10" (click)="editScheduleById(schedule.eventId,'event')">
+                            <img *ngIf="schedule.isManager==true" src="../../assets/images/delete-icon.png"
+                                (click)="openDialogWithTemplateRef(myDialog)" alt="Edit icons">
+                        </div>
+                        <div (click)="scheduleDetails(schedule.eventId,'event')">
+                            <mat-card-title class="pad-t0">{{schedule.eventName}}</mat-card-title>
+                            <mat-card-subtitle class="block-txt">Organizer : {{schedule.eventCreatedByFirstName}}
+                                {{schedule.eventCreatedByLastName}}</mat-card-subtitle>
+                            <mat-card-subtitle class="block-txt add-three-dots">
+                                {{schedule.eventLocation.substring(0,28)}}
+                            </mat-card-subtitle>
+                            <mat-card-subtitle class="block-txt">{{schedule.eventTime}}</mat-card-subtitle>
+                            <mat-card-subtitle class="green-txt"><b>Event</b></mat-card-subtitle>
+                        </div>
+                    </div>
+                </mat-card-title-group>
+            </div>
+
+            <div *ngIf="schedule.isGame==true">
+                <mat-card-title-group>
+                    <div class="landing-leftimg line-height0 align-center schedule-left">
+                        <h2 class="white-txt mar-b5 pad-t40p">{{schedule.gameDate.substring(0,2)}}</h2>
+                        <h4 class="yellow-txt">{{schedule.gameDate.substring(3,6)}} {{schedule.gameDate.substring(7)}}
+                        </h4>
+                    </div>
+                    <div class="schedule-right">
+                        <div class="pad-10 align-right pad-b0">
+                            <!-- <img src="../../assets/images/view-icon.png" (click)="scheduleDetails(schedule.gameId,'game')"
+                                 alt="View icons" class="pad-r10"> -->
+                            <img *ngIf="schedule.isManager==true" src="../../assets/images/edit-icon.png"
+                                (click)="editScheduleById(schedule.gameId,'game')" alt="Edit icons" class="pad-r10">
+                            <img *ngIf="schedule.isManager==true" src="../../assets/images/delete-icon.png"
+                                (click)="openDialogWithTemplateRef(myDialog)" alt="Edit icons">
+                        </div>
+                        <div (click)="scheduleDetails(schedule.gameId,'game')">
+                            <mat-card-title class="pad-t0">{{this.localStorageService.getUserTeamName()}}
+                            </mat-card-title>
+                            <mat-card-subtitle class="block-txt"><b>vs</b> {{schedule.gameOpponentData.teamName}}
+                            </mat-card-subtitle>
+                            <mat-card-subtitle class="block-txt">Organizer : {{schedule.gameCreatedByFirstName}}
+                                {{schedule.gameCreatedByLastName}}</mat-card-subtitle>
+
+                            <mat-card-subtitle class="block-txt">{{schedule.gameTime}}</mat-card-subtitle>
+                            <mat-card-subtitle class="green-txt"><b>Game</b></mat-card-subtitle>
+                        </div>
+                    </div>
+                </mat-card-title-group>
+            </div>
+        </mat-card>
+
+
+        <!-- Dialog template -->
+        <ng-template #myDialog>
+            <mat-dialog-content>
+                <mat-grid-list [cols]="4">
+                    <div class="align-center">
+                        <img  src="../../assets/images/delete-popup-icon.png" alt="Team Member icons">
+                    </div>
+                    <h3  class="align-center popup-confirm">Are you sure want to delete this<h3 class="align-center popup-confirm" *ngIf="schedule.isEvent==true">Event?</h3><h3 class="align-center popup-confirm" *ngIf="schedule.isGame==true">Game?</h3></h3>
+                </mat-grid-list>
+                <div class="home-btn-bottom dflex">
+                    <button class="team-btn cancel-outline-btn save-cancel-btn" mat-dialog-close> No </button>
+                    <button *ngIf="schedule.isEvent==true" class="team-btn red-btn save-cancel-btn" mat-dialog-close
+                        (click)="deleteScheduleById(schedule.eventId,'event')"> Yes </button>
+                    <button *ngIf="schedule.isGame==true" class="team-btn red-btn save-cancel-btn" mat-dialog-close
+                        (click)="deleteScheduleById(schedule.gameId, 'game')"> Yes </button>
+                </div>
+            </mat-dialog-content>
+
+        </ng-template>
+    </div>
+    <div *ngIf="isManager == false && scheduleList == '' " class="pad-t80">
+        <div class="align-center">
+            <img src="../../../assets/images/noevent-icon.png" alt="" />
+        </div>
+        <div class="align-center">
+            <h2>No schedules are available</h2>
+        </div>
+    </div>
+    <div *ngIf="isManager == true && scheduleList == '' " class="pad-t80">
+        <div class="align-center">
+            <img src="../../../assets/images/noevent-icon.png" alt="" />
+        </div>
+        <div class="align-center">
+            <h2>No schedules are available.</h2>
+            <p>Please click the add icon to create schedules</p> 
+        </div>
+    </div>
+
+
+</section>

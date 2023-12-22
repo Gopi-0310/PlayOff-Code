@@ -1,0 +1,46 @@
+.display_data{ width: 100%; max-height: 80vh; }
+.top-nav-space { min-height: 95px; }
+ .display_float{
+    background-color:rgb(63,81,181);
+    color: white;
+    height: 50px;
+    padding: 12px;
+    border-radius: 5px;
+    
+ }
+  
+
+ .display_float input{background-color: white; margin-left: 230px; width: 120px; color: black; height:25px;border:  black;}
+ .display_float .left{  display: inline-block;margin-left: 10px;}
+ .display_float .right{ display: inline-block;margin-left: 350px;}
+ .display_data{ width: 1200px;}
+ .display_float pagination-controls{display:inline-block; color: white; margin-left: 30px;}
+ .display_content_full{width: 100%;}
+ 
+.display_content_left{  float: left;  width: 40%; padding: 10px; box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px; margin-left: 40px;}
+.display_content_middle{ float: right; width: 30%; padding: 10px; margin-right:200px; }
+.display_content_middle .display_shadow_middle{width: 300px; height: 380px; box-shadow:rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px; padding: 33px; }
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+ .hide_scrollbar::-webkit-scrollbar { display: none !important; }
+/* Hide scrollbar for IE, Edge and Firefox */
+ .hide_scrollbar {
+     overflow-y : scroll;
+    -ms-overflow-style: none !important; /* IE and Edge */
+    scrollbar-width: none !important; /* Firefox */
+}
+.animation{ color: blue; margin-left: 170px;animation: animate 1.5s linear infinite;}
+@keyframes animate{
+    0%{
+      opacity: 0;
+    }
+    50%{
+      opacity: 0.9;
+    }
+    100%{
+      opacity: 0;
+    }
+  }
+// nav bar
+

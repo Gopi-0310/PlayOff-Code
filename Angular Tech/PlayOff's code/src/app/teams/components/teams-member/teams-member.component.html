@@ -1,0 +1,50 @@
+<section class="pad-b5">
+    <sidebar_menu></sidebar_menu>
+    <top-menu-bar [currentTab]="tabName"></top-menu-bar>
+
+    <div class="home-btn-bottom team-schedule align-right pad-10 pad-b0">
+        <!-- <button class="rounded-btn" tabindex="0"  (click)="teamSetup()">
+            <mat-icon matPrefix>add</mat-icon>
+        </button> -->
+        <a  *ngIf="isManager==true" tabindex="0" (click)="teamSetup()"><img src="../../assets/images/add-btn.png" alt="Add icons"></a>
+    </div>
+    <!-- <div>{{message}}</div> -->
+    <div *ngFor="let item of teamMemberData" class="role-cards teammembers-page">
+        <mat-card   class="example-card">
+            <mat-card-title-group class="border-bottom">
+                <div  class="line-height0">
+                    <img mat-card-sm-image src="../../assets/images/teammember-icons.png" alt="Team Member icons">
+                </div>
+                <div class="member-title" (click)="getTeamByTd(item.teamId,item.memberId)" >
+                    <mat-card-title class="block-text">{{item.firstName}} {{item.lastName}}</mat-card-title>
+                    <mat-card-subtitle class="green-txt"><b>{{item.memberRole}}</b></mat-card-subtitle>  
+                </div> 
+                <div class="accept-icons" > 
+                    <!-- <img src="../../assets/images/view-icon.png" (click)="getTeamByTd(item.teamId,item.memberId)"  alt="View icons"  class="pad-r10">                     -->
+                    <img  *ngIf="isManager==true" src="../../assets/images/edit-icon.png" (click)="editTeamMemberById(item.memberId,item.memberRole)" alt="Edit icons" class="pad-r10">
+                    <img [hidden]="item.memberRole == 'owner' || localStorageService.getUserName()== item.mobileNumber" *ngIf="isManager==true" src="../../assets/images/delete-icon.png" (click)="openDialogWithTemplateRef(myDialog, item.memberId, item.teamId)" alt="Delete icons">
+
+                </div>     
+            </mat-card-title-group>     
+
+          </mat-card>
+                                         
+            <!-- Dialog template -->
+            <ng-template #myDialog>            
+              <mat-dialog-content >
+                <mat-grid-list [cols]="4">
+                    <div class="align-center">
+                        <img src="../../assets/images/delete-popup-icon.png" alt="Team Member icons">
+                    </div>                    
+                    <h3 class="align-center popup-confirm">Are you sure you want to delete this member?</h3>
+                     
+                </mat-grid-list>
+                <div class="home-btn-bottom dflex">
+                    <button class="team-btn cancel-outline-btn save-cancel-btn" mat-dialog-close> No </button>
+                    <button class="team-btn red-btn save-cancel-btn" mat-dialog-close (click)="deleteMember(item.firstName)"> Yes </button>
+                </div>                         
+              </mat-dialog-content>
+               
+            </ng-template>  
+        </div>
+</section>

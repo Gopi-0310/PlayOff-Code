@@ -1,0 +1,44 @@
+<div class="signup-page">
+
+  <app-top-bar [navigationModel]="navigationModel"></app-top-bar>
+
+  <div class="out-container">
+
+    <div class="align-center">
+      <img src="../../../assets/images/otp-icon.png" alt="" />
+    </div>
+    <div class="align-center">
+      <h2>OTP Verification</h2>
+      <p class="skyBlue-txt sub-heading">Enter OTP received in your mobile</p>
+    </div>
+
+    <form [formGroup]=" loginForm" (keydown)="pressEnterToSubmit($event)" (keypress)="key($event)" (keydown.space)="$event.preventDefault()">
+      <div class="otp-field-container">
+        <mat-form-field class="mbl-field">
+          <input matInput type="tel" #otp1 formControlName="otp1" maxlength="1" autocomplete="off"
+            (keyup)="move($event, '' , otp1, otp2)" />
+        </mat-form-field>
+        <mat-form-field class="mbl-field">
+          <input matInput type="tel" #otp2 formControlName="otp2" maxlength="1" autocomplete="off"
+            (keyup)="move($event, otp1 , otp2, otp3)" />
+        </mat-form-field>
+        <mat-form-field class="mbl-field">
+          <input matInput type="tel" #otp3 formControlName="otp3" maxlength="1" autocomplete="off"
+            (keyup)="move($event, otp2 , otp3, otp4)" />
+        </mat-form-field>
+        <mat-form-field class="mbl-field">
+          <input matInput type="tel" #otp4 formControlName="otp4" maxlength="1" autocomplete="off"
+            (keyup)="move($event, otp3 , otp4, '')" />
+        </mat-form-field>
+
+      </div>
+      <div class="error" style="font-size: 16px; padding-top: 0px!important;">{{message}}</div>
+      <div class="pad-t20 align-center">
+        <p class="skyBlue-txt linkText ">Didn't get the OTP? <span class="green-text"><a (click)="reSendOTP()">Resend OTP</a></span></p>
+      </div>
+      <div class="home-btn-bottom align-center">
+        <button class="team-btn" [ngClass]="{'blue-btn': loginForm.valid,'disabled':! loginForm.valid}"
+          (click)="onSubmit()"> Verify OTP</button>
+      </div>
+    </form>
+  </div>

@@ -1,0 +1,94 @@
+{
+  "Register": [
+    {
+      "username": "saravanan",
+      "sex": "male",
+      "age": 23,
+      "mobileNumber": "9047898618",
+      "disease": "dfdf",
+      "time": "sdsds",
+      "id": 1
+    },
+    {
+      "username": "hari",
+      "sex": "male",
+      "age": "23",
+      "mobileNumber": "1234512345",
+      "disease": "",
+      "time": "",
+      "id": 2
+    },
+    {
+      "username": "megla",
+      "sex": "female",
+      "age": "24",
+      "mobileNumber": "1234512345",
+      "disease": "",
+      "time": "",
+      "id": 3
+    },
+    {
+      "username": "saravanan",
+      "sex": "male",
+      "age": "23",
+      "mobileNumber": "9047898618",
+      "disease": "",
+      "time": "",
+      "id": 4
+    },
+    {
+      "username": "santhini",
+      "sex": "female",
+      "age": "24",
+      "mobileNumber": "9047898618",
+      "disease": "",
+      "time": "",
+      "id": 5
+    },
+    {
+      "username": "renith",
+      "sex": "male",
+      "age": "22",
+      "mobileNumber": "1234512345",
+      "disease": "",
+      "time": "",
+      "id": 6
+    },
+    {
+      "username": "jeba",
+      "sex": "male",
+      "age": "23",
+      "mobileNumber": "1234512345",
+      "disease": "",
+      "time": "",
+      "id": 7
+    },
+    {
+      "username": "akila",
+      "sex": "female",
+      "age": "23",
+      "mobileNumber": "3434343434",
+      "disease": "no",
+      "time": "12 pm",
+      "id": 8
+    },
+    {
+      "username": "suba",
+      "sex": "female",
+      "age": "22",
+      "mobileNumber": "",
+      "disease": "",
+      "time": "",
+      "id": 9
+    },
+    {
+      "username": "suresh kumar",
+      "sex": "male",
+      "age": "21",
+      "mobileNumber": "8012238213",
+      "disease": "headache",
+      "time": "12 pm",
+      "id": 10
+    }
+  ]
+}

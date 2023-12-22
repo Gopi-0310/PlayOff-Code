@@ -1,0 +1,19 @@
+export interface AddNewPlayer {
+    userName:string
+    teamId:string
+    firstName:string
+    lastName:string
+    emailAddress:string
+    mobileNumber:string
+    street:string
+    city:string
+    dateOfBirth:string
+    gender:string
+    jerseyNumber:string
+    nonPlayerStatus:string
+    playerPosition:string
+    state:string
+    memberRole:string
+    isManager:boolean 
+    zipOrPostalCode:string
+}

@@ -1,0 +1,34 @@
+<div class="signup-page">
+  <app-top-bar [navigationModel]="navigationModel"></app-top-bar>
+
+  <div class="out-container">
+    <div>
+      <div class="align-center">
+        <img src="../../../assets/images/addschedule-icon.png" alt="" />
+      </div>
+      <div class="align-center">
+        <!-- <h2 class="mar-b5">Add Schedule</h2> -->
+        <P class="align-center">Track Availability, Assignments, and more!</P>
+        <div class="home-btn-bottom align-center">
+          <a
+            routerLink="/teamsetup/addgames"
+            routerLinkActive="active"
+            class="team-btn blue-btn"
+          >
+            Add Game
+          </a>
+        </div>
+        <div class="home-btn-bottom align-center">OR</div>
+        <div class="home-btn-bottom align-center">
+          <a
+            routerLink="/teamsetup/addevent"
+            routerLinkActive="active"
+            class="team-btn blue-btn"
+          >
+            Add Event
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

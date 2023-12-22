@@ -1,0 +1,77 @@
+<div class="main">
+    <div class="item1 item"><img class="img1" src="./assets/doctor.avif">
+        <img class="img2" src="./assets/stehes.png">
+       <h1>International Hospitals</h1>
+       <p>
+        The Apollo Heart Institutes<br> are regarded as one of the<br> best heart hospitals in India,<br> 
+        performing a multitude of treatments and procedures<br> in cardiology and cardiothoracic surgery
+       </p>
+       <button class="button-71 buttonan" role="button" (click)="register()" [hidden]="!storage_system">Register</button>
+        
+    </div>
+    <div class="card" *ngIf="this.card1 == true">
+        <h3 style="color:black; text-align: center; font-style: italic; font-weight: bolder;">Register</h3>
+        <div class="logincard">
+            <form [formGroup]="registerForm">
+                <label>Name :
+                    <input type="text"  formControlName="username">
+                </label>
+                <label>Male / Female:
+                    <input type="text" formControlName="sex">
+                </label>
+                <label>pationt Age    :
+                    <input type="text" formControlName="age">
+                </label>
+                <label>Mobile Number :
+                    <input type="text" formControlName="mobileNumber">
+                </label>
+                <label>Disease :
+                    <input type="text" formControlName="disease">
+                </label>
+                <label> Appoinment Time :
+                    <input type="text" formControlName="time">
+                </label>
+            </form>
+            <button class="submit" (click)="signup()">Sign Up</button>
+            <h6>Already have an Account <a routerLink="" (click)="login()"><u style="color: rgb(48, 94, 247);">?Login</u></a ></h6>
+        </div>
+        
+    </div>
+
+    <div class="card" *ngIf="this.card2 == true">
+        <h3 style="color:black; text-align: center; font-style: italic; font-weight: bolder;">Login</h3>
+        <div class="logincard">
+            <form [formGroup]="registerForm">
+                <label>Name :
+                    <input type="text"  formControlName="username">
+                </label><br>
+                <br>
+               
+                <label>Mobile Number :
+                    <input type="text" formControlName="mobileNumber">
+                </label>
+            </form>
+            <button class="submit" (click)="loginUser()">Login</button>
+            <h6>Don't have an Account <a routerLink="" (click)="register()"><u style="color: rgb(48, 94, 247);">?Sign Up</u></a ></h6>
+        </div>
+
+</div>
+
+    <div class="item2 item">
+    <div class="car"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKrD7DOQabuoaWN9Mr7iZc59JrgLlLhxtWzQ&usqp=CAU" class="rounded-circle"><span style="color: white;">Cardiology</span></div>
+    <div class="onth"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9iOQooC_RXzd_TQOPCOdc4_H4VOtJAsja5Kh0G9IOkp8A4w5Wen-nd_v3yoqqKvTMexk&usqp=CAU" class="rounded-circle"><span style="color: white;">Oncology</span></div>
+    <div class="urlo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLS02HRAQBo8DH50FFtAV9YfSbqwHMQUaZAA&usqp=CAU" class="rounded-circle"><span style="color: white;">urology</span></div>
+    <div class="otho"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjWHklLhVE7KpsK36llY2LXQiEqYaWgMyTyA&usqp=CAU" class="rounded-circle"><span style="color: white;">orthopeadis</span></div>
+   </div>
+    <div class="item3 item"></div>
+    <div class="item4 item">4</div>
+    <div class="item5 item">5</div>
+    <div class="item6 item">6</div>
+    <div class="item7 item">7</div>
+    <div class="item8 item">8</div>
+    
+   
+<button (click)="triggerSnapshot()">Take a picture</button>
+<webcam [height]="480" [width]="640" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"></webcam>
+<img [src]="capturedImage" *ngIf="capturedImage">
+</div>

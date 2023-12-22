@@ -1,0 +1,24 @@
+<app-navbar (Click_event_child)="Received($event)" style="position: sticky; top: 0%; z-index: 1;"></app-navbar>
+<div>
+<div class="search-bar">
+    <input type="text" [(ngModel)]="searchText" placeholder="search here..." style="margin-top: 20px;margin-left: 400px; width: 250px;"  ><img src="https://img.icons8.com/ios-filled/1x/search--v4.gif" style="width: 25px; height: 25px;">
+</div>
+
+<div *ngFor="let item of response |filter:searchText | paginate: { itemsPerPage: 8, currentPage: p }" class="item1">
+    <img style="width: 100px; height: 100px; margin-top: 10px; margin-left: 50px; border-radius: 10px;" src="{{item.img}}">
+    <p style="margin-top: 4px; margin-left: 35px; font-size: smaller; font-weight: 700;">{{item.name}}</p>
+    <p style="margin-top: 4px; margin-left: 35px;font-size: font-size: small;">{{item.specialist | titlecase}}</p>
+    <p style="margin-top: 4px; margin-left: 35px;font-size: small;">  {{item.time}}</p>
+    <img (click)="doctor(item.name)" style="width: 20px; height: 20px; margin-left: 50px; margin-top: 25px;" src="https://cdn-icons-png.flaticon.com/128/2370/2370264.png">
+    <img (click)="imgclick()" style="width: 20px; height: 20px; margin-left: 90px; margin-top: 25px;" src="https://cdn-icons-png.flaticon.com/128/7974/7974825.png">
+</div>
+<div></div>
+<webcam class="webcame"   *ngIf="this.imagetrigger" [height]="410" [width]="300" [trigger]="triggerObservable" (imageCapture)="handleImage($event)"></webcam>
+<button  style="border-radius: 20px; color: white; background-color:rgb(4,40,75);"  class="webcame" *ngIf="this.imagetrigger"   (click)="triggerSnapshot()">Take a picture</button>
+
+<!-- <img [src]="capturedImage" *ngIf="capturedImage"> -->
+
+
+<div style="margin-top: 30px; margin-left: 500px;"><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
+
+</div>

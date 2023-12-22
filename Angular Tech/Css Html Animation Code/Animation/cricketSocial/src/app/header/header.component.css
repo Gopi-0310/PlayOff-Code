@@ -1,0 +1,33 @@
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    color: aliceblue;
+    background-color: rgb(10, 10, 59);
+   
+}
+
+
+nav li{
+    display: inline-block;
+    margin:15px 20px ;
+    font-weight: 600;
+    animation:nav 2s  ease-in-out;
+}
+@keyframes nav {
+    0%{
+        transform: translateY(-100%);
+        opacity: 0%;
+    }
+}
+    
+h1{
+    animation:h1 2s  ease-in-out;   
+}
+@keyframes h1{
+    0%{
+        transform: translateY(-100%);
+        opacity: 0%;
+    }
+}

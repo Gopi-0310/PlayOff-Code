@@ -1,0 +1,48 @@
+<section class="pad-b5 select-player">
+    <app-top-bar [navigationModel]="navigationModel"></app-top-bar>
+
+    <form [formGroup]="selectPlayerForm">
+        <div class="role-cards teammembers-page">
+            <div *ngFor="let list of contactList; let i = index">
+                <mat-card class="example-card">
+                    <mat-card-title-group>
+                        <div class="line-height0">
+                            <img mat-card-sm-image src="../../assets/images/teammember-icons.png"
+                                alt="Team Member icons">
+                        </div>
+                        <div class="member-title">
+                            <mat-card-title>{{list.displayName}}</mat-card-title>
+                        </div>
+                        <div class="accept-icons">
+                            <div class="round">
+                                <input type="checkbox" id={{i}} value={{i}} (change)="onCheckboxChange($event)" />
+                                <label for={{i}}></label>
+                            </div>
+                        </div>
+                    </mat-card-title-group>
+                    <hr />
+                </mat-card>
+            </div>
+            
+
+              <ng-template #sendinvite>
+                <mat-dialog-content>
+                    <mat-grid-list [cols]="4">
+                        <div class="align-center">
+                            <img src="../../../assets/images/verified-icon.png" alt="Team Member icons">
+                       
+                            <h3 class="align-center popup-confirm popup-cont">Invite will be sent to the selected members</h3>
+                         </div>
+                    </mat-grid-list>
+                    <div class="home-btn-bottom dflex">
+                        <button class="team-btn cancel-outline-btn save-cancel-btn" mat-dialog-close> No </button>
+                        <button  class="team-btn green-btn save-cancel-btn" mat-dialog-close
+                        (click)='onSubmitConfirmation()'> Yes </button>
+                    </div>
+                </mat-dialog-content>
+    
+            </ng-template>
+        </div>
+    </form>
+</section>
+

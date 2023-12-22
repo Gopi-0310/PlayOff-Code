@@ -1,0 +1,79 @@
+html {
+  min-height: 100% !important;
+}
+
+.login-page .mat-input-element,
+.mat-select {
+  color: var(--sky-blue)!important;
+  font-size: 16px !important;
+}
+
+.login-page .mat-input-element .mat-select-value {
+  color: var(--sky-blue)!important;
+  font-size: 16px !important
+}
+
+.login-page .mat-form-field-empty.mat-form-field-label,
+.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  color: var(--sky-blue)!important;
+  font-size: 16px !important
+}
+
+/* .login-page .mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: rgba(255, 255, 255, .8) !important;
+}
+
+::ng-deep .mat-form-field-underline,
+::ng-deep .mat-form-field-ripple {
+  background-color: rgba(255, 255, 255, .8) !important;
+}
+
+.login-page .mat-form-field-wrapper .mat-form-field-appearance-legacy .mat-form-field-label {
+  color: rgba(255, 255, 255, .9) !important;
+} */
+
+error {
+  color: red;
+}
+
+.is-invalid {
+  color: red;
+}
+
+.mat-form-field-invalid .mat-input-element {
+  caret-color: #f44336;
+}
+
+html {
+  min-height: 100% !important;
+}
+
+.login-page .mat-input-element,
+.mat-select {
+  color: var(--sky-blue)!important;
+  font-size: 16px !important;
+}
+
+.login-page .mat-input-element .mat-select-value {
+  color: var(--sky-blue)!important;
+  font-size: 16px !important
+}
+
+.login-page .mat-form-field-empty.mat-form-field-label,
+.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  color: var(--sky-blue)!important;
+  font-size: 16px !important
+}
+
+.login-page .mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: rgba(7, 24, 75, .8) !important;
+}
+
+::ng-deep .mat-form-field-underline,
+::ng-deep .mat-form-field-ripple {
+  background-color: rgba(7, 24, 75, .8) !important;
+}
+
+.login-page .mat-form-field-wrapper .mat-form-field-appearance-legacy .mat-form-field-label {
+  color: rgba(7, 24, 75, .8) !important;
+}

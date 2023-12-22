@@ -1,0 +1,58 @@
+<form [formGroup]="opponentForm">
+    <div class="create-team-page opponent-popup">
+        <div class="create-team-icon add-gamespage pad-0">
+            <div mat-dialog-title class="dialog-title">
+                <h2>Opponent</h2>
+                <button mat-icon-button aria-label="close dialog" (click)="onNoClick()" tabindex="-1">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </div>
+            <mat-accordion class="example-headers-align">
+                <mat-form-field class="full-width-field pad-b10">
+                    <mat-label> Team Name </mat-label>
+                    <mat-icon matPrefix>people</mat-icon>
+                    <input matInput type="text" maxlength="40" autocomplete="off" formControlName="teamName"
+                        [(ngModel)]="data.teamName" />
+                </mat-form-field>
+
+                <mat-form-field class="full-width-field pad-b10">
+                    <mat-label> Contact Person </mat-label>
+                    <mat-icon matPrefix>person</mat-icon>
+                    <input matInput type="text" maxlength="50" autocomplete="off" formControlName="contactPersonName"
+                        [(ngModel)]="data.contactPersonName" />
+                </mat-form-field>
+
+                <div>
+                    <mat-form-field class="country-field">
+                        <mat-icon matPrefix> phone</mat-icon>
+                        <mat-select style="padding-left: 0px !important" formControlName="countryCode"
+                            [(ngModel)]="data.countryCode">
+                            <mat-option value="91-">IND +91</mat-option>
+                            <mat-option value="1-">US +1</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="mbl-field">
+                        <mat-label> Mobile Number</mat-label>
+                        <input matInput type="tel" maxlength="10" (keypress)="key($event)" autocomplete="off"
+                            formControlName="mobileNo" [(ngModel)]="data.mobileNo" />
+                    </mat-form-field>
+                </div>
+                <mat-form-field class="full-width-field pad-b10">
+                    <mat-label> Email </mat-label>
+                    <mat-icon matPrefix>mail</mat-icon>
+                    <input matInput type="email" autocomplete="off" maxlength="50"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" formControlName="emailAddress"
+                        [(ngModel)]="data.emailAddress" />
+                </mat-form-field>
+            </mat-accordion>
+
+            <div class="btn-full-width home-btn-bottom">
+                <button class="team-btn save-cancel-btn" [mat-dialog-close]="data" [disabled]="opponentForm.invalid"
+                    [ngClass]="{'blue-btn':opponentForm.valid, 'disabled':opponentForm.invalid}">
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+>

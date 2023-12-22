@@ -1,0 +1,104 @@
+<app-top-nav></app-top-nav>
+<div *ngIf="!crypto.isLoggedin" class="container-fluid full-container">
+    <div class="card outer-card box-shadow-p-white">   
+        <!-- Outer Card Content \\\\-->
+        <div class="text" [class]="login.checked ? 'opacity-100' : 'opacity-0'">
+            <div class="highfy-font" >Hai, User!</div>
+            <div class="highfy-font">Welcome back.</div>
+        </div>
+        <div class="text" [class]="!reg.checked ? 'opacity-0' : 'opacity-100'">
+            <div class="highfy-font">Greetings!</div>
+            <div class="highfy-font">Join our Network!</div>
+        </div>
+        <!-- Outer Card Content ////-->
+        <!-- Inner Card Content \\\\-->
+        <div class="card card-effects box-shadow-purple border-0" [class]="login.checked ? 'left-translate' : 'right-translate' ">
+            <div class="top-content">
+                <!-- mat-select \\\-->
+                <mat-form-field appearance="outline" class="w-100" >
+                    <mat-label>Identifier type</mat-label>
+                    <mat-select (selectionChange)="changeLoginType(selectedOption)" [(ngModel)]="selectedOption" value="0">
+                        <mat-option  *ngFor="let type of login_inputArray" [value]="type.value">
+                        {{type.viewValue}}
+                        </mat-option>
+                    </mat-select>
+                    </mat-form-field>
+                <!-- mat-select ///-->
+                <!-- Pinion icon -->
+                <i [class]="login.checked ? 'gear-icon-rotate-X' : 'gear-icon-rotate-NX' " class="fas fa-gear gear-icon"></i>
+            </div>
+            <div class="middle-content">
+                <!-- Sign Up/Sign In Button group \\\\ -->
+                <mat-button-toggle-group  class="btn-toggle w-100" >
+                    <mat-button-toggle  #reg   [class]="reg.checked?'  btn-toggle-type-1':'btn-toggle-type-2'" (click)="clearForm()">Sign Up</mat-button-toggle>
+                    <mat-button-toggle  #login [class]="login.checked?'btn-toggle-type-1':'btn-toggle-type-2'" (click)="clearForm()" checked>Sign In</mat-button-toggle>
+                </mat-button-toggle-group>
+                <!-- Sign Up/Sign In Button group //// -->
+                <form class="forms mt-4" [class]="login.checked ? 'left-translate-50' : 'right-translate-50' " autocomplete="off" [formGroup]="LoginForm">
+                    <div>
+                        <!-- Identifier -->
+                        <mat-form-field appearance="outline" class="w-100 mb-1">
+                            <mat-label>{{identifier_Type.viewValue}}</mat-label>
+                            <input matInput [placeholder]="identifier_Type.placeholder" name="identifier" id="identifier" formControlName="identifier">
+                            <div *ngIf="identifier?.touched || identifier?.dirty">
+                                <div class="error-msg" *ngIf="identifier?.hasError('required')">  {{identifier_Type.viewValue}} is required</div>
+                                <div class="error-msg" *ngIf="identifier?.hasError('customValidation') 
+                                    && !identifier?.hasError('required') && !identifier?.hasError('minlength') && !identifier?.hasError('maxlength')">
+                                    <div>{{identifier_Type.error_msg}}</div>
+                                </div>
+                            </div>
+                        </mat-form-field>
+                        <!-- Password -->
+                        <mat-form-field appearance="outline" class="w-100 mb-3">
+                            <mat-label>Password</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" placeholder="Ex. A@Dm!N#!@#2" name="password" id="password" formControlName="password">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                              <mat-icon class="mat-icon">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                            <div *ngIf="password?.touched || password?.dirty">
+                                <div class="error-msg" *ngIf="password?.hasError('required')">  Password is required</div>
+                                <div class="error-msg" *ngIf="password?.hasError('minlength')"> Password required atleast 8 characters</div>
+                                <div class="error-msg" *ngIf="password?.hasError('maxlength')"> Password does not exceeds 20 characters</div>
+                                <div class="error-msg" *ngIf="password?.hasError('pattern') 
+                                && !password?.hasError('required') && !password?.hasError('minlength') && !password?.hasError('maxlength')">   
+                                    Password needs 1 Uppercase, 1 Lowercase, <br> 1 Special char, 1 Number.
+                                </div>
+                            </div>
+                          </mat-form-field>
+                          <mat-form-field appearance="outline" class="w-100 "  *ngIf="reg.checked">
+                            <mat-label>Location</mat-label>
+                            <input
+                                  matInput
+                                  formControlName="location"
+                                  matGoogleMapsAutocomplete
+                                 (onAutocompleteSelected)="onAutocompleteSelected($event)"
+                                 (onLocationSelected)="onLocationSelected($event)"/>
+                            <mat-icon class="mat-icon" matSuffix>place</mat-icon>
+                          </mat-form-field>
+                    </div>
+                </form>
+                <div class="">
+                    <!-- mat-button \\\\ -->
+                    <button mat-raised-button color="primary" *ngIf="login.checked"class="btn-toggle-type-1 w-45"(click)="Login()"    [disabled]="LoginForm.invalid ">Sign In</button>
+                    <button mat-raised-button color="primary" *ngIf="reg.checked"  class="btn-toggle-type-1 w-45"(click)="Register()" [disabled]="LoginForm.invalid ">Sign Up</button>
+                    <button mat-raised-button color="primary"     class="btn-toggle-type-1 float-right w-45 mb-4"(click)="clearForm()"[disabled]="LoginForm.pristine">Clear  </button>
+                    <!-- mat-button //// -->
+                    <!-- Google btn -->
+                        <div style="margin:-1px !important;">
+                            <asl-google-signin-button text="continue_with" *ngIf="login.checked" theme="outline" type="standard" size="medium" width="350"></asl-google-signin-button>
+                        </div>                        
+                    <!-- Microsoft Btn -->
+                    <button mat-stroked-button *ngIf="login.checked" class="w-100 mt-3"(click)="social.signInWithMicrosoft()">
+                        <i><img class="float-left microsoft-icon" src="../assets/Authentify Images/microsoft.png"></i>
+                        <span class="poppins-font microsoft-btn">Continue with Microsoft</span> 
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Inner Card Content ////-->
+    </div>
+</div>
+<div *ngIf="crypto.isLoggedin"> <!--Is Logged in-->
+    <div class="welcome-content"></div>
+    <div class="container white-color f-1_5" style="position:absolute; top:70px;">Hi, {{crypto.Logged_User}}</div>
+</div>

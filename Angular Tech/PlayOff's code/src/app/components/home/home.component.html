@@ -1,0 +1,33 @@
+<div class="app-welcome-screen login-page">
+  <div class="app-welcome-inner">
+    <div class="app-logo"></div>
+    <div class="app-label">{{'logo' | translate}}</div>       
+    <div class="pad-t60 ">
+      <div class="align-center login-page-icon">
+        <img src="../../../assets/images/login-icon.png" alt=""/>
+      </div>
+      <div class="align-center">
+        <h2 class="white-txt">Login with Mobile</h2>
+        <p class="white-txt sub-heading">Enter your mobile number we will send you OTP to verify</p>
+      </div>
+     
+      <div class="login-field-container">  
+        <mat-form-field class="country-field">
+          <mat-select [(value)]="selected">         
+            <mat-option value="+91">+91</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="mbl-field" >
+          <input matInput  placeholder="Mobile Number">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="btn-full-width home-btn-bottom">     
+      <button routerLink="/login" class="team-btn white-btn">{{'login' | translate}} </button>      
+    </div>
+    <div class="pad-t20">
+      <p class="sub-heading">Don't have an account? <span class="green-text"><a routerLink="/signup" routerLinkActive="active" >Sign up</a></span></p>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,59 @@
+<div  class="create-team-page create-teams">
+    <app-top-bar [navigationModel]="navigationModel"></app-top-bar>
+
+    <div  class="out-container container-bg create-team-icon">
+        <form [formGroup]="createTeamForm" >
+            <mat-form-field class="pad-b20">
+                <mat-label> Team Name </mat-label>
+                <mat-icon matPrefix>people</mat-icon>
+                <input matInput formControlName="teamname" type="text" maxlength="40" autocomplete="off" [(ngModel)]="teamModel.teamName"/>
+            </mat-form-field>
+
+            <mat-form-field class="pad-b20">
+                <mat-label>Sports</mat-label>
+                <mat-icon matPrefix>bookmark</mat-icon>
+                <mat-select matNativeControl formControlName="sports" [(ngModel)]="teamModel.sportId" class="team-scroll">
+                    <cdk-virtual-scroll-viewport class="dropdown-scroll" itemSize="10" >
+                        <mat-option *ngFor="let sport of sportList" [value]="sport.sportId">{{sport.sportName}}</mat-option>
+                    </cdk-virtual-scroll-viewport>
+                </mat-select>                
+            </mat-form-field>
+
+            <!-- <mat-form-field>
+                <mat-select placeholder="State"> 
+                    <cdk-virtual-scroll-viewport class="dropdown-scroll" style="height: 250px; overflow-y: scroll;"  itemSize="90" >                      
+                    <mat-option *ngFor="let sport of sportList" [value]="sport.sportId" [value]="sport.sportId">{{sport.sportName}}</mat-option>
+                    </cdk-virtual-scroll-viewport>
+                </mat-select>
+              </mat-form-field> -->
+
+            <mat-form-field class="pad-b20">    
+                    <mat-label> Pin / Postal Code </mat-label>
+                    <mat-icon matPrefix> place</mat-icon>
+                    <input matInput formControlName="zipCode" type="tel" maxlength="6" (keypress)="key($event)" required
+                        (keydown.space)="$event.preventDefault()" autocomplete="off" [(ngModel)]="teamModel.zipCode"/>
+            </mat-form-field>
+            <div class="error field-error" [hidden]=" message == '' ">{{message}}</div>
+
+            <mat-form-field class="pad-b20">
+                <mat-label>Time Zone</mat-label>
+                <mat-icon matPrefix>language</mat-icon>
+                <mat-select formControlName="timezone" [(ngModel)]="teamModel.timeZone">  
+                    <mat-option>None</mat-option>
+                    <mat-option *ngFor="let timezone of timezoneList" value={{timezone.timeZoneName}}> ({{timezone.timeZoneIdentifier}}) {{timezone.timeZoneName}}</mat-option>                             
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="pad-b20">
+                <mat-label>Country</mat-label>
+                <mat-icon matPrefix>flag</mat-icon>
+                <mat-select formControlName="countryname" [(ngModel)]="teamModel.country" required>                                 
+                    <mat-option *ngFor="let country of countryList" value={{country.countryCode}}>{{country.countryName}} </mat-option>                                    
+                </mat-select>
+            </mat-form-field>
+        </form>
+    </div>
+
+    
+
+</div>

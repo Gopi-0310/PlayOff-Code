@@ -1,0 +1,74 @@
+<app-navbar></app-navbar>
+<div class="top-nav-space"></div> <!--needed for top-nav-->
+<div class="container-fluid display_data hide_scrollbar">
+ 
+  <div class="display_float" style="position: static;">
+    <li class="left">UserName</li>
+    <li class="right">UserLocation</li>
+    <span><input type="text" [(ngModel)]="searchText" placeholder="search here..."><img
+      src="https://img.icons8.com/ios-filled/1x/search--v4.gif" style="width: 25px; height: 27px; border: solid black;"></span>
+    <pagination-controls previousLabel="" nextLabel="" (pageChange)="pageNumber = $event"></pagination-controls>
+  </div>
+  
+  <mat-accordion 
+    *ngFor="let item of  this.geoService.locationResponse  |filter:searchText | paginate: { itemsPerPage: 8, currentPage: pageNumber }">
+    <mat-expansion-panel [expanded]="some(item)" hideToggle >
+      
+      <mat-expansion-panel-header (click)="getMethod(item)">
+        <mat-panel-title>
+          <p>{{item.identifier}}</p>
+        </mat-panel-title>
+        <mat-panel-description>
+          <p style="height: fit-content;  margin-top: 20px; margin-left: 60px; ">{{item.location | slice :0:45}}...</p> <mat-icon matSuffix>place</mat-icon>
+        </mat-panel-description>
+        <mat-panel-description>
+          <p class="animation" >click here</p>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div class="display_content_full">
+        <div class="display_content_left">
+          <agm-map style="height: 370px; width: 430px;" [latitude]=item.locationLatitude
+            [longitude]=item.locationLongitude [zoom]="10" gestureHandling=greedy [fullscreenControl]=false
+            [streetViewControl]=true [mapTypeControl]=true>
+            <agm-marker [latitude]=item.locationLatitude [longitude]=item.locationLongitude></agm-marker>
+          </agm-map>
+        </div>
+        <div class="display_content_middle">
+          <div  class="display_shadow_middle">
+          <p>
+            <mat-form-field appearance="outline" >
+              <mat-label>Country</mat-label>
+              <input matInput placeholder="Placeholder"  [value]="this.geoService.country?this.geoService.country:'Country Details Not Available'" readonly>
+              <mat-icon matSuffix>place</mat-icon>
+            </mat-form-field>
+            
+         </p>
+          <p>
+            <mat-form-field appearance="outline" >
+              <mat-label>State</mat-label>
+              <input matInput placeholder="Placeholder"  [value]="this.geoService.state?this.geoService.state:'State Details Not Available' " readonly>
+              <mat-icon matSuffix>place</mat-icon>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field appearance="outline" >
+              <mat-label>City</mat-label>
+              <input matInput placeholder="Placeholder"  [value]="this.geoService.city?this.geoService.city:'City Details Not Available'" readonly>
+              <mat-icon matSuffix>place</mat-icon>
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field appearance="outline" >
+              <mat-label>Street</mat-label>
+              <input matInput placeholder="Placeholder"  [value]="this.geoService.street?this.geoService.street:'Street Details Not Available'" readonly>
+              <mat-icon matSuffix>place</mat-icon>
+            </mat-form-field>
+          </p>
+        </div>
+        </div>
+        
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+</div>

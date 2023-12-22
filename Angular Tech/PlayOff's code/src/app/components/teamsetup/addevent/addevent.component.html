@@ -1,0 +1,185 @@
+<div class="create-event-page">
+  <app-top-bar [navigationModel]="navigationModel"></app-top-bar>
+  <div class="out-container container-bg create-team-icon add-gamespage">
+    <form class="my-form" [formGroup]="addEventForm">
+      <mat-card-content>
+        <mat-selection-list class="full-width pad-b10">
+          <mat-icon matPrefix>notifications</mat-icon>
+          <mat-list-option
+            class="pad-0"
+            #note
+            [selected]="eventModel.notifyTeam == 'yes'"
+            (click)="notifyEventSelect(note.selected)"
+          >
+            Notify Team
+          </mat-list-option>
+        </mat-selection-list>
+
+        <mat-form-field class="full-width pad-b10">
+          <mat-label>Event Name </mat-label>
+          <mat-icon matPrefix>class</mat-icon>
+          <input
+            matInput
+            formControlName="eventName"
+            placeholder="Event Name"
+            autocomplete="off"
+            [(ngModel)]="eventModel.eventName"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="full-width pad-b10">
+          <mat-label>Time Zone </mat-label>
+          <mat-icon matPrefix>language</mat-icon>
+          <mat-select formControlName="eventTimeZone"
+          [(ngModel)]="eventModel.eventTimeZone"
+          >
+          <mat-option>None</mat-option>
+            <mat-option
+              *ngFor="let timezone of timezoneList"
+              value="{{ timezone.timeZoneName }}"
+            >
+              ({{ timezone.timeZoneIdentifier }}) {{ timezone.timeZoneName }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="full-width pad-b10">
+          <mat-label>Date </mat-label>
+          <mat-icon matPrefix>date_range</mat-icon>
+          <input
+            matInput
+            formControlName="eventDate"
+            [min]="minDate"
+            [matDatepicker]="myDatePicker"
+            (click)="myDatePicker.open()"
+            autocomplete="off"
+            readonly
+            style="position: relative"
+          />
+          <mat-datepicker #myDatePicker></mat-datepicker>
+          <mat-datepicker-toggle
+            style="position: absolute; right: 0px; opacity: 0"
+            matPrefix
+            [for]="myDatePicker"
+          ></mat-datepicker-toggle>
+        </mat-form-field>
+
+        <mat-form-field class="full-width pad-b10" *ngIf="isHidden">
+          <mat-label>Time </mat-label>
+          <input
+            matInput
+            [ngxTimepicker]="picker"
+            formControlName="eventTime"
+            readonly
+            [(ngModel)]="eventModel.eventTime"
+          />
+          <mat-icon matPrefix>access_time</mat-icon>
+        </mat-form-field>
+        <ngx-material-timepicker #picker></ngx-material-timepicker>
+
+        <!-- <mat-selection-list>
+                    <mat-icon matPrefix>notifications</mat-icon>
+                    <mat-icon matPrefix>timer</mat-icon>
+                    <mat-list-option formControlName="eventTimeToBeDecide" (click)="add()" value="yes" [selected]="">
+                        Time TBD </mat-list-option>
+                </mat-selection-list> -->
+
+        <mat-form-field class="full-width pad-b10">
+          <mat-label>Repeats</mat-label>
+          <mat-icon matPrefix>repeat</mat-icon>
+          <mat-select formControlName="eventRepeats"
+          [(ngModel)]="eventModel.eventRepeats"
+          >
+          <mat-option value="never" selected>Never</mat-option>
+            <mat-option value="weekly">Weekly</mat-option>
+            <mat-option value="daily">Daily</mat-option>
+            
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="full-width pad-b10">
+          <mat-label>Location </mat-label>
+          <mat-icon matPrefix>room</mat-icon>
+          <input
+            matInput
+            formControlName="eventLocation"
+            value="mapAddress"
+            matGoogleMapsAutocomplete
+            (onAutocompleteSelected)="onAutocompleteSelected($event)"
+            (onLocationSelected)="onLocationSelected($event)"
+            [(ngModel)]="eventModel.eventLocation"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="full-width pad-b10">
+          <mat-label>Location Details</mat-label>
+          <mat-icon matPrefix>map</mat-icon>
+          <input
+            matInput
+            placeholder="Location Details"
+            formControlName="eventLocationDetails"
+            autocomplete="off"
+            [(ngModel)]="eventModel.eventLocationDetails"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="full-width pad-b10">
+          <mat-icon matPrefix>people</mat-icon>
+          <input
+            matInput
+            formControlName="eventAssignments"
+            (click)="openAssignmentDialog()"
+            readonly
+            placeholder="Event Assignments"
+            autocomplete="off"
+            [(ngModel)]="totalLength"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="full-width pad-b10">
+          <mat-label>Duration</mat-label>
+          <mat-icon matPrefix> av_timer</mat-icon>
+          <input
+          (click)="openDurationDialog()"
+            matInput
+            placeholder="Duration"
+            readonly
+            autocomplete="off"
+            name="locationdetails"
+            [value]="durationTotal"
+           
+          />
+        </mat-form-field>
+
+        <mat-form-field class="full-width pad-b10">
+          <mat-label>Arrive Early</mat-label>
+          <mat-icon matPrefix>access_alarms</mat-icon>
+          <mat-select formControlName="arriveEarlyInfo"
+          [(ngModel)]="eventModel.arriveEarlyInfo"
+          >
+            <mat-option
+              *ngFor="let early of arriveEarlyList"
+              value="{{ early.eventDurationId }}"
+            >
+              {{ early.arriveEarlyDuration }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="full-width pad-b10">
+          <mat-label>Notes</mat-label>
+          <mat-icon matPrefix>note</mat-icon>
+          <textarea
+            matInput
+            placeholder="Notes"
+            formControlName="eventNotes"
+            [(ngModel)]="eventModel.eventNotes"
+          ></textarea>
+        </mat-form-field>
+        <div>
+          <!-- <button  (click)="addEvent()">Submit</button> -->
+        </div>
+      </mat-card-content>
+    </form>
+  </div>
+</div>

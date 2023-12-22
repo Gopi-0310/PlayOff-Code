@@ -1,0 +1,53 @@
+<div class="create-team-page">
+  <div class="create-team-icon add-gamespage">
+    <div mat-dialog-title class="dialog-title">
+      <h2>Event Assignment</h2>
+      <button mat-icon-button aria-label="close dialog" (click)="dialogRef.close()" tabindex="-1">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <form [formGroup]="eventAssignmentsForm">
+      <div class="form-group popup-scrollbar">
+        <div *ngFor="let web of eventList">
+          <label  class="popup-lbl-txt">
+            <p> <input type="checkbox" [value]="web.eventAssignmentId" class="checkbox-size" (change)="onCheckboxChange($event)"
+                [checked]="web.checked" />
+              {{web.eventAssignmentName}}</p>
+          </label>
+        </div>
+
+        <div formArrayName="customAssignmentsArray">
+          <div *ngFor="let web of customAssignments">
+            <label  class="popup-lbl-txt">
+              <p> <input type="checkbox" [value]="web.check" class="checkbox-size" (change)="onCustomCheckboxChange($event)" checked />
+                {{web.check}}</p>
+            </label>
+          </div>
+
+          <div *ngFor="let data of customCheckbox().controls; let i = index" [formGroupName]="i">
+            <input type="checkbox" class="checkbox-size" formControlName="selected" checked>
+            <mat-form-field matInput class="pad-t0" style="width: 80%; padding-top: 0px!important;">
+              <input class='customAssignments-inputField' formControlName="check" autocomplete="off" matInput style="font-weight: 500;">
+            </mat-form-field>
+          </div>
+        </div>
+
+        <!-- <button type="button" class="sml-btn blue-btn mar-l0" (click)="addField()">
+          <mat-icon matPrefix style="color: #fff!important;">add</mat-icon>Add
+        </button> -->
+        
+      </div>
+     
+      <div class="home-btn-bottom team-schedule align-right pad-15 pad-b0 event-icon">
+        <!-- <button class="rounded-btn" tabindex="0" (click)="addField()">
+            <mat-icon matPrefix style="color: #fff!important;" >add</mat-icon>
+        </button> -->
+        <a tabindex="0" (click)="addField()"><img src="../../assets/images/add-icon.png" alt="Add icons"></a>
+      </div>
+      <div class="btn-full-width home-btn-bottom align-center">
+        <button class="team-btn blue-btn save-cancel-btn " (click)="onSubmit()"> Save </button>
+      </div>
+    </form>
+  </div>
+
+</div>

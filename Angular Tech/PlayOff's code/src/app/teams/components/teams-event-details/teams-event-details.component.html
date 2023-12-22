@@ -1,0 +1,71 @@
+<section class="schedule-details">
+    <app-teams-schedule-topbar></app-teams-schedule-topbar>
+    <app-teams-header [currentTab]="scheduleTabName"></app-teams-header>
+    <app-teams-event-banner></app-teams-event-banner>
+
+
+    <!-- <div class="home-btn-bottom team-schedule align-right pad-10 pad-r15">
+        <button class="edit-rounded-btn" tabindex="0">
+            <mat-icon matPrefix>edit</mat-icon>
+        </button>
+    </div> -->
+    <!------------- game ----------->
+    <div class="out-container container-bg" *ngIf="localStorageService.getUserActionData().data.type == 'game'">        
+        <div>
+            <form>
+                <mat-card-content>
+                    <mat-form-field class="full-width pad-b10">
+                        <mat-icon matPrefix>room</mat-icon>
+                        <input matInput [value]="gameModel.location" autocomplete="off"  readonly>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width pad-b10">
+                        <mat-icon matPrefix>map</mat-icon>
+                        <input matInput [value]="gameModel.locationDetails?gameModel.locationDetails:'No Location Details'" autocomplete="off"  readonly>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width pad-b10">
+                        <mat-icon matPrefix>note</mat-icon>
+                        <input matInput [value]="gameModel.gameNotes?gameModel.gameNotes:'No Game Notes'" autocomplete="off" readonly> 
+                      </mat-form-field>
+
+                </mat-card-content>
+            </form>
+        </div>
+    </div>
+
+    <!------------- Event ----------->
+
+    <div class="out-container container-bg" *ngIf="localStorageService.getUserActionData().data.type == 'event'">        
+        <div>
+            <form>
+                <mat-card-content>
+                    <mat-form-field class="full-width pad-b10">
+                        <mat-icon matPrefix>room</mat-icon>
+                        <input matInput [value]="eventModel.eventLocation" autocomplete="off" readonly>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width pad-b10">
+                        <mat-icon matPrefix>map</mat-icon>
+                        <input matInput [value]="eventModel.eventLocationDetails?eventModel.eventLocationDetails:'No Location Details'" autocomplete="off" readonly>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width pad-b10">
+                        <mat-icon matPrefix>note</mat-icon>
+                        <input matInput [value]="eventModel.eventNotes?eventModel.eventNotes:'No Event Notes'" autocomplete="off" readonly> 
+                      </mat-form-field>
+
+                </mat-card-content>
+            </form>
+        </div>
+      
+    </div>
+    
+    <div class="container" fxLayout="column" fxLayoutAlign="center">
+        <div fxFlex>
+            <agm-map [latitude]="locationLatitude" [longitude]="locationLongtitude" [zoom]=10 gestureHandling = greedy [fullscreenControl]= false [streetViewControl]= true [mapTypeControl]= true>
+                <agm-marker [latitude]="locationLatitude" [longitude]="locationLongtitude"></agm-marker>
+              </agm-map>
+          </div>
+    </div>
+</section>

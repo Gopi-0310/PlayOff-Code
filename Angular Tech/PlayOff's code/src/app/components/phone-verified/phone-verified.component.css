@@ -1,0 +1,8 @@
+.box-verified {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 150px;
+}
+
+.out-container{height: 300px;}

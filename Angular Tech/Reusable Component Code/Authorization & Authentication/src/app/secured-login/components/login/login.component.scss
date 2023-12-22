@@ -1,0 +1,99 @@
+//variables
+$error  : #f44336;
+$my-purple: #3f51b5;
+$my-purple-dark: #1e2a6d;
+.f-1_5              { font-size: 1.5em; }
+.border-0           { border: none;}
+.box-shadow-purple  { box-shadow: inset 0 0 3px 1px $my-purple-dark;}
+.box-shadow-p-white { box-shadow: inset 0 0 8px .1px $my-purple;}
+.btn-toggle         { height: 38px; place-items: center;}
+.forms              { transition: 1.2s ease-in-out; }
+.w-45               { width: 45%;   }
+.float-right        { float: right; }
+.float-left         { float: left;  }
+.text               { transition: .8s ease-out; }
+
+.full-container {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../../../../assets/Authentify Images/loginbg3.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.full-container::before {
+    content: "";
+    position: absolute;
+    top:57px;
+    left: 0;
+    width: 100%;
+    height: 91%;
+    background-color: rgba(0, 0, 0, 0.4); 
+    mix-blend-mode:color-burn; /* Apply the desired blending mode */
+}
+.outer-card {
+    margin-top: 57px;
+    display: grid;
+    grid-template-columns: repeat(2,50%);
+    place-items: center;
+    width: 1000px;
+    height:533px;
+    position: relative;
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+}
+.card-effects {
+    display: grid;
+    place-content: center;
+    padding: 10px 5vmin;
+    width: 400px;
+    min-height: 530px;
+    transition: 1.2s ease-in-out;
+    position: absolute;
+    border-radius: 0;
+}
+.error-msg {
+    color: red;
+    font-size: .72em !important;
+    position: absolute;
+    padding-top:20px;
+    line-height: 15px;
+}
+.gear-icon {
+    position: absolute;
+    right: -15.5px;
+    top: -1px;
+    font-size: 2.5em;
+    z-index: -1;
+    color: $my-purple;
+    transition: 1.2s ease-in-out;
+}
+.opacity-0              { opacity: 0;   }
+.opacity-100            { opacity: 100; }
+.gear-icon-rotate-X     { rotate: -360deg; }
+.gear-icon-rotate-NX    { rotate: 360deg;  }
+.left-translate         { transform: translateX(60%); }
+.right-translate        { transform: translateX(-60%);}
+.highfy-font {
+    font-size: 3.2em;
+    color:white;
+    font-weight: bold;
+}
+.microsoft-btn {
+    font-size: .99em;
+    font-weight: 400;
+    color: #292929;
+}
+.microsoft-icon {
+    width:12px !important;
+    position: relative !important;
+    top:12.5px !important;
+    right: 3.5px !important;
+}
+.welcome-content {
+    background-image: url('../../../../assets/Authentify Images/welcome.png');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-light box-shadow-dark custom-nav">
+    <div class="container-fluid">
+      <a class="navbar-brand ms-4"> <span 
+        [class]="(route.url=='/Admin' || route.url == '/superAdmin')? 'black-color' : 'white-color'">
+          Authentify - Secure Access Framework (Reusable Module)</span> </a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item me-2">
+            <button mat-raised-button color="primary" class="btn-toggle-type-1 w-100" (click)="mapView()" 
+            *ngIf="(crypto.showBtn == 'Advance' || crypto.showBtn == 'Pro') && route.url != '/map-view-components'">
+                Admin
+            </button>
+          </li>
+          <li class="nav-item me-2">
+            <button mat-raised-button color="primary"
+            *ngIf="crypto.showBtn == 'Pro' && route.url != '/superAdmin'" class="btn-toggle-type-1 w-100" routerLink="/superAdmin">
+              Manage Users
+          </button>
+          </li>
+          <li class="nav-item me-2">
+            <button mat-raised-button color="primary"
+            *ngIf="route.url == '/Admin' || route.url == '/superAdmin'" class="btn-toggle-type-1 w-100" routerLink="/">
+              Home
+          </button>
+          </li>
+          <li class="nav-item" *ngIf="crypto.isLoggedin">
+            <button mat-raised-button color="primary" class="btn-toggle-type-1" (click)="logout()">
+              <i class="bi bi-box-arrow-right"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,111 @@
+ <section class="team-headerbar">
+  
+  <mat-toolbar  color="primary" fxFlexFill role="banner" class="header-style header-shadow">
+    <mat-toolbar-row>
+       
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+
+      <div style="text-align: center !important; overflow-wrap: break-word;  word-break: break-all; white-space: pre-wrap; line-height: 24px;">
+        <span class="team-top-title">{{ this.localStorageService.getUserTeamName() }}</span>
+      </div>
+
+      <div style="width: 10%; text-align: right !important">
+        <span class="example-spacer"></span>
+        <a routerLink="/teams/teamsaddnew" class="white-txt">
+          <span [hidden]="isManager == false"> <mat-icon class="add-plus-icon">add_circle_outline</mat-icon></span>
+        </a>
+      </div>
+
+      <div fxHide fxShow.gt-sm style="display: none">
+        <a routerLink="/myprofile" routerLinkActive="active" tabindex="0" mat-button ><mat-icon>account_circle</mat-icon> My Profile</a>
+        <a routerLink="/aboutus" routerLinkActive="active" mat-button><mat-icon>person</mat-icon> About Us</a>
+        <a routerLink="/helpandsupport" routerLinkActive="helpandsupport" mat-button ><mat-icon>help</mat-icon> Help and Support</a>
+        <a (click)="logout()" mat-button><mat-icon>input</mat-icon> Logout</a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar> 
+
+  <mat-sidenav-container fxFlexFill class="team-sidebar">
+    <mat-sidenav #sidenav>
+      <div class="hamburger-bg">
+        <div style="text-align: center">
+          <div class="pad-t30">
+            <img mat-card-sm-image src="../../assets/images/member-photo.png" />
+          </div>          
+          <h4 class="white-txt mar-b5 uppercase" >{{ this.localStorageService.getUserFirstName() }}&nbsp;{{ this.localStorageService.getUserLastName() }}</h4>
+          <h5 class="white-txt">
+            {{ this.localStorageService.getUserName() }}
+          </h5>
+           
+        </div>
+      </div>
+      <mat-nav-list class="sidemenu-bars">
+        <a routerLink="/myprofile" routerLinkActive="active" class="dflex"><p class="mar-b0"><mat-icon>person_outline</mat-icon></p>  <p class="pad-l5">  My Profile</p> </a>
+        <a routerLink="/aboutus" routerLinkActive="active" class="dflex"> <p class="pad-t4 mar-b0"> <mat-icon>people_outline</mat-icon></p> <p class="pad-l5">  About Us</p> </a>
+        <a routerLink="/helpandsupport" routerLinkActive="helpandsupport" class="dflex"><p class="mar-b0"> <mat-icon>help_outline</mat-icon></p> <p class="pad-l5"> Help and Support</p> </a>
+        <a (click)="openDialogTemplateRef(Dialog)" class="dflex"><p class="pad-t4 mar-b0"><mat-icon>power_settings_new</mat-icon></p> <p class="pad-l5">  Sign out </p></a>
+      </mat-nav-list>
+    </mat-sidenav>
+  </mat-sidenav-container>
+
+
+  <div>                                          
+    <!-- Dialog template -->
+    <ng-template #Dialog>            
+      <mat-dialog-content>
+        <mat-grid-list [cols]="4">
+            <div class="align-center">
+
+            <img src="../../../assets/images/exit-popPup-icon.png" alt="Team Member icons" style="padding-top: 10px;"> 
+            </div>          
+            <h3 class="align-center popup-confirm">Are you sure want to Sign out?</h3>
+            
+        </mat-grid-list>
+        <div class="home-btn-bottom dflex" >
+            <button class="team-btn cancel-outline-btn save-cancel-btn" mat-dialog-close> No </button>
+            <button class="team-btn blue-btn save-cancel-btn" (click)="logout()" mat-dialog-close> Yes </button>
+        </div>                         
+      </mat-dialog-content>
+      
+    </ng-template>  
+  </div>
+
+
+</section>  
+
+<!-- <section>
+  <div fxLayout="row" fxLayoutAlign="space-between" class="fixed-header header-shadow" style="width:100%;position:relative">
+    <mat-toolbar   color="primary" fxFlexFill role="banner" class="header-style header-shadow">
+      <mat-toolbar-row>
+        <div>
+            <a  mat-button  routerLink="#"  routerLinkActive="active">
+              <mat-icon class="mat-icon-rtl-mirror mat-icon notranslate mat-icon-no-color ng-star-inserted" role="img">menu</mat-icon>
+            </a>
+            <a  mat-button  routerLink="#"  routerLinkActive="active">test</a>
+        </div>
+        <div fxShow="true" fxHide.lt-md="true" class="example-fill-remaining-space">
+  
+            <a  mat-button  routerLink="/customer-list"  routerLinkActive="active">Customers</a>
+            <a  mat-button  routerLink="/customer-create">Create Customer</a>
+            <a  mat-button  routerLink="/login">Login</a>
+        </div>
+        <div>
+            <a  mat-button  routerLink="#"  routerLinkActive="active"><mat-icon>notifications</mat-icon></a>
+            <a  mat-button  routerLink="#"  routerLinkActive="active" fxShow="true" fxHide.lt-md="true">Prem Kuma Pallinti</a>
+            <a  mat-button  routerLink="#"  routerLinkActive="active" fxShow="true" fxHide.lt-md="true"><img aria-hidden="true" src="C:/Users/Prem/Desktop/FinalApp/images/man-avater.png"></a>
+            <a  mat-button  routerLink="/login"><mat-icon class="mat-icon-rtl-mirror mat-icon notranslate mat-icon-no-color ng-star-inserted" role="img">more_vert</mat-icon></a>
+        </div>
+  
+      </mat-toolbar-row>
+  
+  
+      </mat-toolbar>
+      <main>
+      <router-outlet  style="margin-top: 80px;"></router-outlet>
+      </main>
+  
+  </div>
+</section> -->
+

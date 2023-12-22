@@ -1,0 +1,26 @@
+<section class="pad-b5">
+    <sidebar_menu></sidebar_menu>
+    <top-menu-bar [currentTab]="tabName"></top-menu-bar>
+
+    <div class="out-container addteams-new">
+      <mat-card class="cards-radius addteam-bg" (click)="createTeam()">         
+        <mat-card-actions align="end" class="addteam-cards-bottom">
+          <h2 class="align-center blk-decoration-none">Add Team</h2>
+        </mat-card-actions>
+      </mat-card>
+      <br/>
+      <mat-card class="cards-radius addevent-bg" (click)="addSchedule()">         
+        <mat-card-actions align="end" class="addteam-cards-bottom">
+          <h2 class="align-center blk-decoration-none">Add Schedule</h2>
+        </mat-card-actions>
+      </mat-card>
+      <br/>     
+     
+      <mat-card class="cards-radius addmember-bg" (click)="addMember()">         
+        <mat-card-actions align="end" class="addteam-cards-bottom">
+          <h2 class="align-center blk-decoration-none">Add Member</h2>
+        </mat-card-actions>
+      </mat-card>
+    </div> 
+
+</section>

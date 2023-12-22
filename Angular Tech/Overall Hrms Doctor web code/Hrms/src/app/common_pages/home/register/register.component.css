@@ -1,0 +1,57 @@
+.login_display{
+    height: 430px;
+    width: 350px;
+    /* background-image:linear-gradient(to right,#191877,#055555); */
+    background-color:rgb(229,236,253);
+    border-radius: 33px;
+    border-width: 30px;
+    border:rgb(229,236,253) solid;
+    margin-top: 1px;
+    position: relative;
+  
+}
+.login_display:hover{
+    
+    border: rgb(0, 9, 10) solid;
+    
+  
+}
+form{
+    margin-left: 60px;
+}
+h5{
+    margin-left: 80px; 
+    margin-top: 20px;
+    font-weight: 900;
+}
+.input_display{
+margin-top: 20px;
+border:rgb(229,236,253) solid;
+border-radius: 10px;
+text-align: center;
+}
+
+.display{
+    margin-top: 5px;
+    font-size:medium; font-weight: 600;
+}
+button{
+    margin-top: 25px;
+    padding: 4px;
+    margin-left: 67px;
+    border-radius: 8px;
+    width:80px ;
+    height: 40px;
+    border: solid;
+
+}
+button:hover{
+    background-color: rgb(42, 165, 184);
+}
+form p a:hover{
+color: blue;
+}
+ a span u{
+    position: absolute;
+    margin-right: 800px;
+}

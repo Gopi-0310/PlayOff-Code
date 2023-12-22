@@ -1,0 +1,39 @@
+*{
+    margin      : 0;
+    padding     : 0;
+    cursor      : pointer;
+    box-sizing  : border-box;
+    font-family : sans-serif;
+}
+.main{
+    height     : fit-content;
+    width      : 100%;
+    border-top :rgb(32,32,32) solid 3px ;
+}
+.main-header{
+    height           : 50px;
+    color            :white;
+    background-color :black;
+    
+}
+h1{
+    float       : left;
+    padding     :14px 100px;
+    font-size   : larger;
+    font-weight : 900;
+    
+}
+nav{
+    float        : left;
+    padding-left : 300px;
+}
+li{
+    list-style  : none;
+    display     : inline-block;
+    padding     : 18px 30px;
+    font-size   : large;
+    font-weight : 500;
+}
+app-image-caputre{
+    margin-left: 0%;
+}

@@ -1,0 +1,7 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'ngx-toastr/toastr';
+.toast-success  { background-color: #3db93d !important; box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.4) !important;} 
+.toast-info     { background-color: #1bbae6 !important; box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.4) !important;} 
+.toast-warning  { background-color: #f99406 !important; box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.4) !important;} 
+.toast-error    { background-color: #bc382e !important; box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.4) !important;} 

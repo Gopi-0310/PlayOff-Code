@@ -1,0 +1,163 @@
+<section class="schedule-details">
+  <app-teams-schedule-topbar></app-teams-schedule-topbar>
+  <app-teams-header [currentTab]="scheduleTabName"></app-teams-header>
+  <app-teams-event-banner></app-teams-event-banner>
+
+  <!-- <div class="home-btn-bottom team-schedule align-right pad-10 pad-b0 pad-r15">
+    <button class="rounded-btn" tabindex="0">
+      <mat-icon matPrefix>add</mat-icon>
+    </button>
+  </div> -->
+
+  <div class="role-cards teammembers-page">
+    <!-- event -->
+    <div *ngIf="localStorageService.getUserActionData().data.type == 'event'">
+      <mat-card class="example-card" *ngFor="let eventAssignment of eventAssignmentList">
+        <mat-card-title-group>
+          <div class="line-height0">
+            <img mat-card-sm-image src="../../assets/images/event-assignment-icons.png" alt="Team Member icons" />
+          </div>
+          <div class="member-title">
+            <mat-card-title>{{ eventAssignment.eventAssignmentName }}
+            </mat-card-title>
+            <div>
+              <mat-card-subtitle
+                *ngIf="eventAssignment.assignedMemberUserName && eventAssignment.assignedMemberUserName != ''">
+                {{ teamMembersList[eventAssignment.assignedMemberUserName].firstName }}
+                {{ teamMembersList[eventAssignment.assignedMemberUserName].lastName }}
+              </mat-card-subtitle>
+            </div>
+          </div>
+          <div class="accept-icons align-right pad-b0">
+            <img *ngIf="isManager==true" src="../../assets/images/edit-icon.png" alt="Edit icons" class="pad-r10"
+              (click)="
+                openDialogWithTemplateRef(
+                  editAssignment,
+                  eventAssignment.eventAssignmentName,
+                  eventAssignment.eventAssignmentId,
+                  eventAssignment.assignedMemberUserName
+                )" />
+            <img *ngIf="isManager==true" src="../../assets/images/delete-icon.png" (click)="openDialogWithTemplateRef(
+                myDialog,
+                eventAssignment.eventAssignmentName,
+                  eventAssignment.eventAssignmentId,
+                  eventAssignment.assignedMemberUserName
+                )" alt="Edit icons" />
+          </div>
+        </mat-card-title-group>
+        <hr />
+      </mat-card>
+      <div *ngIf="eventAssignmentList == '' " class="pad-t40">
+        <div class="align-center">
+            <img src="../../../assets/images/noassignment-icon.png" alt="" />
+        </div>
+        <div class="align-center">
+            <h2>No assignments are available</h2>
+        </div>
+    </div>
+    </div>
+
+    <!-- game -->
+    <div *ngIf="localStorageService.getUserActionData().data.type == 'game'">
+      <mat-card class="example-card" *ngFor="let gameAssignment of gameAssignmentList">
+        <mat-card-title-group>
+          <div class="line-height0">
+            <img mat-card-sm-image src="../../assets/images/event-assignment-icons.png" alt="Team Member icons" />
+          </div>
+          <div class="member-title">
+            <mat-card-title #val>{{
+              gameAssignment.gameAssignmentName
+              }}</mat-card-title>
+            <div>
+              <mat-card-subtitle
+                *ngIf="gameAssignment.assignedMemberUserName && gameAssignment.assignedMemberUserName != ''">
+                {{ teamMembersList[gameAssignment.assignedMemberUserName].firstName }}
+                {{ teamMembersList[gameAssignment.assignedMemberUserName].lastName }}
+              </mat-card-subtitle>
+            </div>
+          </div>
+          <div class="accept-icons align-right pad-b0">
+            <img *ngIf="isManager==true" src="../../assets/images/edit-icon.png" alt="Edit icons" class="pad-r10"
+              (click)="
+              openDialogWithTemplateRef(
+                  editAssignment,
+                  gameAssignment.gameAssignmentName,
+                  gameAssignment.gameAssignmentId,
+                  gameAssignment.assignedMemberUserName
+                )
+              " />
+            <img *ngIf="isManager==true" src="../../assets/images/delete-icon.png" (click)="openDialogWithTemplateRef(
+                myDialog,
+                gameAssignment.gameAssignmentName,
+                gameAssignment.gameAssignmentId,
+                gameAssignment.assignedMemberUserName
+                )" alt="Edit icons" />
+          </div>
+        </mat-card-title-group>
+        <hr />
+      </mat-card>
+      <div *ngIf="gameAssignmentList == '' " class="pad-t40">
+        <div class="align-center">
+          <img src="../../../assets/images/noassignment-icon.png" alt="" />
+        </div>
+        <div class="align-center">
+          <h2>No assignments are available</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Delete Dialog -->
+  <ng-template #myDialog>
+    <mat-dialog-content>
+      <mat-grid-list [cols]="4">
+        <div class="align-center">
+          <img src="../../assets/images/delete-popup-icon.png" alt="Team Member icons" />
+        </div>
+        <h3 class="align-center popup-confirm">Are you sure want to delete this assignment?</h3>
+      </mat-grid-list>
+      <div class="home-btn-bottom dflex">
+        <button class="team-btn cancel-outline-btn save-cancel-btn" mat-dialog-close>
+          No
+        </button>
+        <button class="team-btn red-btn save-cancel-btn" (click)="deleteAssignment()">Yes</button>
+      </div>
+    </mat-dialog-content>
+  </ng-template>
+
+  <!-- Edit Assignment Dialog -->
+  <ng-template #editAssignment>
+    <mat-dialog-content>
+      <form [formGroup]="saveMemberForm">
+        <div class="myprofile">
+          <div class="pad-0">
+            <div mat-dialog-title class="dialog-title">
+              <h1 mat-dialog-title>Edit Assignment</h1>
+              <button mat-icon-button aria-label="close dialog" mat-dialog-close tabindex="-1">
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+            <div class="pad-b20 edit-phonepopup">
+              <mat-form-field class="full-width pad-b10">
+                <input matInput type="text" autocomplete="off" value={{dialogAssignmentName}} readonly />
+              </mat-form-field>
+            </div>
+
+            <mat-form-field class="full-width pad-b10" floatLabel="never">
+              <mat-select placeholder="Select Member" [(ngModel)]="dialogMemberAssigned"
+                formControlName="selectedMember" >
+                <mat-option *ngFor="let x of teamMembersList | keyvalue" value="{{ x.value.mobileNumber }}">
+                  {{ x.value.firstName }} {{ x.value.lastName }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div class="btn-full-width home-btn-bottom">
+              <button (click)="saveAssignment()" class="team-btn blue-btn save-cancel-btn">
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </mat-dialog-content>
+  </ng-template>
+</section>

@@ -1,0 +1,65 @@
+  <span *ngIf="data.dialogType === 'delete'">
+    <div class="mat-dialog-head"><b>Confirm deletion!</b></div>
+    <div class="mat-dialog-body">
+      Are you sure you want to delete all data that is relevant to
+      <strong>{{data.row.identifier}}</strong> ?
+    </div>
+    <div class="mat-dialog-btn">
+      <div>
+        <button mat-raised-button color="primary" cdkFocusInitial type="button" [mat-dialog-close]="'deleted'">
+          <i class="fas fa-check "></i>
+        </button>
+        <button mat-raised-button color="primary" type="button" mat-dialog-close class="ms-2">
+          <i class="fas fa-times "></i>
+        </button>
+      </div>
+    </div>
+  </span>
+
+  <span *ngIf="data.dialogType === 'socialLogout'">
+    <div class="mat-dialog-head"><b>Confirm logout!</b></div>
+    <div class="mat-dialog-body">
+      Are you sure you want to logout, 
+      <strong>{{crypto.Logged_User}}</strong> ?
+    </div>
+    <div class="mat-dialog-btn">
+      <div>
+      <button class="me-2" *ngIf=" data.row == 'MM'" [mat-dialog-close]="'loggedout'" cdkFocusInitial mat-raised-button color="primary" type="button">
+        <span class="f-0_8">
+          Keep my Microsoft account, logged in.
+        </span>
+      </button>
+      <button mat-raised-button color="primary" type="button" [mat-dialog-close]="'logoutCompletely'+data.row">
+        <span class="f-0_8" *ngIf="data.row == 'MM'"> 
+          Sign out Completely 
+        </span>
+        <span *ngIf="data.row == 'GG'"> 
+          <i class="fas fa-check "></i>
+        </span>
+      </button>
+      <button mat-raised-button color="primary" type="button" mat-dialog-close class="ms-2">
+        <i class="fas fa-times "></i>
+      </button>
+    </div>
+    </div>
+  </span>
+
+  <span *ngIf="data.dialogType === 'logout'">
+    <div class="mat-dialog-head"><b>Confirm logout!</b></div>
+    <div class="mat-dialog-body">
+      Are you sure you want to logout, 
+      <strong>{{data.row}}</strong> ?
+    </div>
+    <div class="mat-dialog-btn">
+      <div>
+        <button mat-raised-button color="primary" cdkFocusInitial type="button" [mat-dialog-close]="'loggingout'">
+          <i class="fas fa-check "></i>
+        </button>
+        <button mat-raised-button color="primary" type="button" mat-dialog-close class="ms-2">
+          <i class="fas fa-times "></i>
+        </button>
+      </div>
+    </div>
+  </span>
+  
+  

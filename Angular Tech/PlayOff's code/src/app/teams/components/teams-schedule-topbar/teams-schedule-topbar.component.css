@@ -1,0 +1,41 @@
+.top-header {
+    background-color: #1565c0;    
+}
+
+.top-header h2 {
+    margin: 0px !important;
+    line-height: 1.5em;
+    font-size: 20px!important;
+    font-weight: 500 !important;
+}
+
+.flex-container {
+    -ms-box-orient: horizontal;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+}
+
+.left-icon {
+    width: 10%
+}
+
+.center-title {
+    width: 80%
+}
+
+.right-icon {
+    width: 10%
+}
+
+.left-icon,
+.center-title,
+.right-icon {
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}

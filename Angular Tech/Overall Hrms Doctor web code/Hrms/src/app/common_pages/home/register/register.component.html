@@ -1,0 +1,23 @@
+
+<div class="login_display">
+    <form [formGroup]="signUpForm">
+        <h5 >SignUp</h5>
+        <div class="display">
+        <input  class="input_display" type="text" formControlName="name" placeholder="Name"  >
+        <input  class="input_display" type="text" formControlName="mobileNumber" placeholder="MobileNumber">
+        <input  class="input_display" type="email" formControlName="email" placeholder="E-mail">
+        <input  class="input_display" type="text" formControlName="appoinmentTime" placeholder="Appoinment Date">
+        <!-- <input  class="input_display" type="text" placeholder="Appoinment Time"> -->
+        <!-- <input style="text-align: center;" class="input_display" type="text" placeholder="Date"> -->
+        <input style="text-align: center;" class="input_display" type="password" formControlName="password" placeholder="Create password"><br>
+        </div>
+        <button type="button"   (click)="register()">signUp</button>
+        <!-- <div style="display: inline-block;"><p>Already have an account!</p><a ;"><span><u>Login</u></span></a></div> -->
+        <div >
+            <p style="font-size:small; font-weight: 600;">Already have an Account 
+               <u (click)="login()" style="color: rgb(42, 165, 184) ;">Login</u>
+            </p>
+          </div>
+    </form>
+</div>
+
